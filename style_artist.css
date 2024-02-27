@@ -1,0 +1,87 @@
+/*MAIN PAGE*/
+body {
+    background-color: black;
+    color: white;
+}
+
+.side-bar-left,
+.center-content,
+.side-bar-right {
+    height: 90vh;
+}
+
+.command-bar {
+    height: 10vh;
+    border: 1px solid white;
+}
+
+.command-left,
+.command-center,
+.command-right {
+    border: 1px solid white;
+    height: 10vw;
+}
+
+.center-content {
+    background-color: #1E1E1E ; /*sistemare, deve essere gradiente*/
+}
+
+.left-btn,
+.right-btn {
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    background-color: black;
+}
+
+.user-img {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.user-btn {
+    height: 30px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    background-color: black;
+}
+
+.home a,
+.search a,
+.books a,
+.playlist a,
+.liked a,
+.episodes a {
+    font-size: 9pt;
+    color: white;
+    text-decoration: none;
+}
+
+/*ARTIST PAGE*/
+div.jumbotron {
+    background-image: url(https://e-cdns-images.dzcdn.net/images/artist/1ab642216454f5e5e02c234f93af481c/1000x1000-000000-80-0-0.jpg);
+    height: 60vh;
+    /*sistema la background position*/
+}
+
+span.bg-primary {
+    border-radius: 50%;
+}
+
+/*play button*/
+i.fa-play {
+    color: black;
+}
+
+.play-btn {
+    background-color: #16D561;
+    border-radius: 50%;
+}
