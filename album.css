@@ -1,0 +1,81 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+.side-bar-left,
+.center-content,
+.side-bar-right {
+    height: 90vh;
+    border: 1px solid white;
+}
+
+.command-bar {
+    height: 10vh;
+    border: 1px solid white;
+}
+
+.command-left,
+.command-center,
+.command-right {
+    border: 1px solid white;
+    height: 10vw;
+}
+
+.center-content {
+    background-color: rgb(15, 15, 15);
+}
+
+.left-btn,
+.right-btn {
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    background-color: black;
+}
+
+.user-img {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.user-btn {
+    height: 30px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    background-color: black;
+}
+
+.home a,
+.search a,
+.books a,
+.playlist a,
+.liked a,
+.episodes a {
+    font-size: 9pt;
+    color: white;
+    text-decoration: none;
+}
+
+
+
+
+
+
+/* album css */
+.album-img {
+    width: 300px;
+}
+
+.artist-img {
+    width: 30px;
+    border-radius: 50%;
+}
