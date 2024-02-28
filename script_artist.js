@@ -14,6 +14,8 @@ const artistTable = document.getElementById("artistTable");
 //sezione favourite songs:
 const favSongSection = document.getElementById("favSongSection");
 
+window.onload = getArtist ()
+
 //fetch GET artista 
 async function getArtist () {
     try {
@@ -22,12 +24,12 @@ async function getArtist () {
         // console.log(object);
         createTitlePage (object);
         getTracks(object);
+        innerFavourite(object);
+
     } catch (error) {
         console.log("There's an error!")
     }
 }
-
-getArtist ()
 
 // funzione che mostra i dati nel jumbotron: 
 function createTitlePage ({name, picture_xl}) {
@@ -66,6 +68,7 @@ function showTracks ({album, title, duration}) {
 
     //tableTr
     let tableTr = document.createElement("tr");
+    tableTr.classList.add("border-0");
     artistTable.appendChild(tableTr);
 
     //tableTh
@@ -98,4 +101,16 @@ function showTracks ({album, title, duration}) {
     firstTableTd.append(albumPrev, titleTrack);
     tableTr.appendChild(secondTableTd);
     tableTr.appendChild(thirdTableTd);
+}
+
+
+//funzione che aggiorna la sezione "Brani che ti piacciono":
+function innerFavourite ({name, picture}) {
+    let favImg = document.querySelector("#favSongSection img");
+    favImg.classList.add("img-favourite", "mx-3");
+    favImg.src = `${picture}`;
+    favImg.alt = "artist_image";
+
+    let favSpan = document.querySelector("#favSongSection div span:last-of-type");
+    favSpan.innerText = `Di ${name}`;
 }

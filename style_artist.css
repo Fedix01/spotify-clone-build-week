@@ -77,9 +77,10 @@ body {
     overflow-y: scroll;
 }
 
-span.bg-primary {
+#jumboTitle div div span.bg-primary {
     border-radius: 50%;
 }
+
 
 /*play button*/
 i.fa-play {
@@ -98,5 +99,11 @@ i.fa-play {
 
 .img-tracklist {
     width: 3em;
+}
+
+.img-favourite {
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
 }
 
