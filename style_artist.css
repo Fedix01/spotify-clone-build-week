@@ -69,6 +69,8 @@ body {
 div.jumbotron {
     background-image: url(https://e-cdns-images.dzcdn.net/images/artist/1ab642216454f5e5e02c234f93af481c/1000x1000-000000-80-0-0.jpg);
     height: 60vh;
+    background-size: cover;
+    background-repeat: no-repeat;
     /*sistema la background position*/
 }
 
