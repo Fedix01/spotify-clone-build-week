@@ -85,3 +85,7 @@ i.fa-play {
     background-color: #16D561;
     border-radius: 50%;
 }
+
+.scrollbar {
+    overflow-y: scroll;
+}
