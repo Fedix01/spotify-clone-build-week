@@ -1,33 +1,26 @@
-body {
+body{
     background-color: black;
     color: white;
 }
 
-.side-bar-left,
-.center-content,
-.side-bar-right {
+.side-bar-left, .center-content, .side-bar-right{
     height: 90vh;
-    border: 1px solid white;
 }
 
-.command-bar {
-    height: 10vh;
-    border: 1px solid white;
-}
-
-.command-left,
-.command-center,
-.command-right {
-    border: 1px solid white;
-    height: 10vw;
-}
-
-.center-content {
+.command-bar{
+    max-height: 10vw;
     background-color: rgb(15, 15, 15);
 }
 
-.left-btn,
-.right-btn {
+.command-left, .command-center, .command-right{
+    max-height: 10vw;
+}
+
+.center-content{
+    background-color: rgb(15, 15, 15);
+}
+
+.left-btn, .right-btn{
     height: 30px;
     width: 30px;
     margin-left: 5px;
@@ -38,14 +31,14 @@ body {
     background-color: black;
 }
 
-.user-img {
+.user-img{
     height: 15px;
     width: 15px;
     border-radius: 50%;
     background-color: white;
 }
 
-.user-btn {
+.user-btn{
     height: 30px;
     margin-top: 5px;
     border: none;
@@ -54,13 +47,85 @@ body {
     background-color: black;
 }
 
-.home a,
-.search a,
-.books a,
-.playlist a,
-.liked a,
-.episodes a {
+a{
     font-size: 9pt;
     color: white;
     text-decoration: none;
+}
+
+.fa-heart{
+    color: rgb(161, 0, 179);
+}
+
+.fa-bookmark{
+    color: rgba(0, 255, 145, 0.355);
+}
+
+.fa-square-plus{
+    color: grey;
+}
+
+.player-btn{
+    height: 20px;
+    padding: 3px 20px;
+    margin-top: 10px;
+}
+
+.progress{
+    max-height: 3px;
+    margin: 11px;
+    color: white;
+}
+
+.card-top{
+    background-image: linear-gradient(10deg, black, rgb(30, 30, 30));
+}
+
+.img-card-top{
+    height: 125px;
+}
+
+.p-album{
+    font-size: 8pt;
+    color: white;
+}
+
+.card-top-btn{
+    height: 35px;
+    width: 70px;
+    border-radius: 18px;
+}
+
+.card-top-btn:hover{
+    transform: scale(1.05);
+}
+
+.card-top-btn.play{
+    background-color: rgb(105, 217, 114);
+}
+
+.card-top-btn.save{
+    color: white;
+    border: 1px solid grey;
+    background-color: black;
+}
+
+.card-top-btn.save:hover{
+    border: 1px solid white;
+}
+
+.hidden-posts{
+    font-size: 6pt;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    color: grey;
+    background-color: rgb(15, 15, 15);
+}
+
+.top-right-btn{
+    font-size: 10pt;
+    color: white;
+    border: none;
+    background-color: black;
 }
