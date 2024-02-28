@@ -129,3 +129,17 @@ a{
     border: none;
     background-color: black;
 }
+
+
+
+/*SCROLLBAR*/
+.scrollbar {
+    height: 70vh;
+    overflow-y: scroll;
+}
+
+.list-group-item {
+    background-color: black;
+    border: none;
+    color: white;
+}
