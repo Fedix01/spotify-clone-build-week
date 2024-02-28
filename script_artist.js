@@ -1,59 +1,101 @@
-//URL endpoint:
-const urlSongs = "https://striveschool-api.herokuapp.com/api/deezer/search?q=queen"; //! cambiare querystring
+//tramite ID dell'album su cui l'utente clicca
 
-// todo NODI UTILI:
-const pageCover = document.getElementById("jumboTitle"); 
+// id esempio (pink floyd)
+let artistID = 860;
 
+//URL 
+const artistUrl = `https://striveschool-api.herokuapp.com/api/deezer/artist/${artistID}`;
+
+//NODI UTILI
+//sezione copertina:
+const jumbotrone = document.getElementById("jumboTitle"); 
+//sezione tabella risultati: 
 const artistTable = document.getElementById("artistTable");
+//sezione favourite songs:
+const favSongSection = document.getElementById("favSongSection");
 
-const favSong = document.getElementById("favSongSection");
-
-getArtist ()
-
-//fetch tracklist:
+//fetch GET artista 
 async function getArtist () {
     try {
-        let response = await fetch(urlSongs);
+        let response = await fetch(artistUrl);
         let object = await response.json();
-        object = object.data; // oggetto con tutti i contenuti relativi allo specifico artista
-        console.log(object) 
-        
-        getPageTitle(object);
-          
+        // console.log(object);
+        createTitlePage (object);
+        getTracks(object);
     } catch (error) {
-        console.log("there's an error in your request!")
+        console.log("There's an error!")
     }
 }
 
-// inner jumbotron:
-function getPageTitle () {
-    let artistTitle = document.querySelector("#jumboTitle p:first-of-type");
-    artistTitle.innerText = "The Queen";
-    
+getArtist ()
+
+// funzione che mostra i dati nel jumbotron: 
+function createTitlePage ({name, picture_xl}) {
+    let pTitle = document.querySelector("#jumboTitle p");
+    pTitle.innerText = `${name}`;
+
+    let coverImg = document.querySelector("#jumboTitle");
+    coverImg.style.backgroundImage = `url(${picture_xl})`
+    coverImg.classList.add("jumbotron");
 }
 
+// funzione che richiama endpoint per tracklist:
+async function getTracks ({tracklist}) {
+    try {
+        let response = await fetch(tracklist);
+        let object = await response.json();
 
+        let [one, two, three, four, five] = object.data; // voglio solo le prime 5
+        let tracksToShow = [];
+        tracksToShow.push(one, two, three, four, five);
 
+        tracksToShow.forEach(track => {
+            showTracks(track);
 
+        })
+        
+    } catch (error) {
+        console.log("There's an error!")
+    }
+}
 
+// funzione che mostra tracklist in table:
+// li number: 
+let listNumber = 1;
+function showTracks ({album, title, duration}) {
 
-/* todo <tbody>
-    <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-    </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-    </tr>
-    </tbody>*/ 
+    //tableTr
+    let tableTr = document.createElement("tr");
+    artistTable.appendChild(tableTr);
+
+    //tableTh
+    let tableTh = document.createElement("th");
+    let tableThNumber = listNumber;
+    listNumber++;
+    tableTh.classList.add("text-white")
+    tableTh.innerText = `${tableThNumber}`;
+
+    //tableTD
+    let firstTableTd = document.createElement("td");
+    let albumPrev = document.createElement("img");
+    albumPrev.classList.add("img-tracklist");
+    albumPrev.src = `${album.cover}`;
+    let titleTrack = document.createElement("span");
+    titleTrack.classList.add("text-white", "fw-bold");
+    titleTrack.innerText = `${title}`;
+
+    let secondTableTd = document.createElement("td");
+    secondTableTd.classList.add("text-white");
+    secondTableTd.innerText = "numero ascoltatori";
+    
+
+    let thirdTableTd = document.createElement("td");
+    thirdTableTd.classList.add("text-white");
+    thirdTableTd.innerText = `${duration}`;
+
+    tableTr.appendChild(tableTh);
+    tableTr.appendChild(firstTableTd);
+    firstTableTd.append(albumPrev, titleTrack);
+    tableTr.appendChild(secondTableTd);
+    tableTr.appendChild(thirdTableTd);
+}

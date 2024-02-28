@@ -19,7 +19,6 @@ body {
 .command-center,
 .command-right {
     border: 1px solid white;
-    height: 10vw;
 }
 
 .center-content {
@@ -65,13 +64,17 @@ body {
     text-decoration: none;
 }
 
-/*ARTIST PAGE*/
-div.jumbotron {
-    background-image: url(https://e-cdns-images.dzcdn.net/images/artist/1ab642216454f5e5e02c234f93af481c/1000x1000-000000-80-0-0.jpg);
-    height: 60vh;
+
+/* *ARTIST PAGE*/
+.jumbotron {
+    height: 45vh;
     background-size: cover;
     background-repeat: no-repeat;
-    /*sistema la background position*/
+    background-position: center;
+}
+
+.scrollbar {
+    overflow-y: scroll;
 }
 
 span.bg-primary {
@@ -88,6 +91,12 @@ i.fa-play {
     border-radius: 50%;
 }
 
-.scrollbar {
-    overflow-y: scroll;
+/*classi JS*/
+.text-white {
+    color: white;
 }
+
+.img-tracklist {
+    width: 3em;
+}
+

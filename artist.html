@@ -58,6 +58,7 @@
             </div>
             <!-- center content -->
             <div class="col-8 center-content scrollbar">
+                <!--arrows and user button-->
                 <div class="row position-relative">
                     <div class="col-12 d-flex justify-content-between position-absolute">
                         <div>
@@ -73,10 +74,11 @@
                             </button>
                         </div>
                     </div>
+
                     <!--copertina-->
                     <div class="col-12 p-0">
-                        <div class="jumbotron d-flex align-items-end">
-                            <div class="d-flex flex-column ps-3" id="jumboTitle">
+                        <div class="d-flex align-items-end" id="jumboTitle">
+                            <div class="d-flex flex-column ps-3" >
                                 <div>
                                     <span class="p-1 bg-primary"><i class="fa-solid fa-check p-1"></i></span>
                                     <span>Artista Verificato</span>
@@ -86,6 +88,7 @@
                             </div>
                         </div>
                     </div>
+
                     <!--bottoni-->
                     <div class="col-12">
                         <div class="d-flex align-items-center mt-2 mb-3">
@@ -94,15 +97,17 @@
                             <i class="fa-solid fa-ellipsis"></i>
                         </div>
                     </div>
+
                     <!--contenuto-->
                     <div class="col-12">     
                         <div class="row">
-                            <div class="col-12 col-md-6">
+                            <div class="col-12 col-md-8">
                                 <h3>Popolari</h3>
                                 <table class="table" id="artistTable">
+                                    <tbody id="artistTable"></tbody>
                                 </table>
                             </div>  
-                            <div class="col-12 col-md-6">
+                            <div class="col-12 col-md-4">
                                 <div>
                                     <h3 id="favSongSection">Brani che ti piacciono</h3>
                                     <div>
@@ -116,11 +121,14 @@
                             </div>                          
                         </div>                        
                     </div>
+
                     <div-col class="12">
                         visualizza altro
                     </div-col>
+
                 </div>
             </div>
+
             <!-- sidebar right -->
             <div class="col-2 side-bar-right">
 
