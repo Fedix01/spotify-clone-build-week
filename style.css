@@ -129,3 +129,9 @@ a{
     border: none;
     background-color: black;
 }
+
+#songs-result {
+    position: relative; 
+    height: 90vh; 
+    overflow: auto; 
+}
