@@ -3,7 +3,7 @@ body {
     color: white;
 }
 
-.side-bar-left,
+/* .side-bar-left,
 .center-content,
 .side-bar-right {
     height: 90vh;
@@ -13,6 +13,16 @@ body {
 .command-bar {
     height: 10vh;
     border: 1px solid white;
+} */
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 30rem;
+    overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
 }
 
 .command-left,
@@ -78,4 +88,42 @@ body {
 .artist-img {
     width: 30px;
     border-radius: 50%;
+}
+
+.table {
+    color: lightgray;
+}
+
+
+
+
+.bg-container {
+    height: 5.5rem;
+    background-color: #282828;
+}
+
+.playerControls .row {
+    justify-content: space-between;
+}
+
+.playerControls a img {
+    width: 14px;
+    margin-top: 1rem;
+    filter: brightness(60%);
+}
+
+.playerControls a:hover {
+    filter: brightness(80%);
+    color: #282828 !important;
+}
+
+.progress {
+    color: white;
+    background-color: #414141;
+    height: 3px;
+}
+
+.playBar p {
+    margin-bottom: 20px;
+    color: white;
 }
