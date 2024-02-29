@@ -10,15 +10,11 @@ body {
     height: 90vh;
 }
 
-.command-bar {
+.command-bar{
+    position: fixed;
+    bottom: 0;
     height: 10vh;
-    border: 1px solid white;
-}
-
-.command-left,
-.command-center,
-.command-right {
-    border: 1px solid white;
+    background-color: rgb(111, 108, 108);
 }
 
 .center-content {
