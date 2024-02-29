@@ -64,7 +64,7 @@ async function getTracks ({tracklist}) {
 // funzione che mostra tracklist in table:
 // li number: 
 let listNumber = 1;
-function showTracks ({album, title, duration}) {
+function showTracks ({album, title, duration, rank}) {
 
     //tableTr
     let tableTr = document.createElement("tr");
@@ -75,7 +75,7 @@ function showTracks ({album, title, duration}) {
     let tableTh = document.createElement("th");
     let tableThNumber = listNumber;
     listNumber++;
-    tableTh.classList.add("text-white")
+    tableTh.classList.add("text-white", "px-2")
     tableTh.innerText = `${tableThNumber}`;
 
     //tableTD
@@ -88,8 +88,8 @@ function showTracks ({album, title, duration}) {
     titleTrack.innerText = `${title}`;
 
     let secondTableTd = document.createElement("td");
-    secondTableTd.classList.add("text-white");
-    secondTableTd.innerText = "numero ascoltatori";
+    secondTableTd.classList.add("text-white", "ps-2");
+    secondTableTd.innerText = `${rank}`;
     
 
     let thirdTableTd = document.createElement("td");

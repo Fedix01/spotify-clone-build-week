@@ -128,7 +128,7 @@ i.fa-play {
 
 /*responsive*/
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
     div.sidebar-left, div.side-bar-right {
         display: none;
     }

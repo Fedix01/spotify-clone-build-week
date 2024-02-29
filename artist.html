@@ -88,13 +88,14 @@
                                     <span>Artista Verificato</span>
                                 </div>
                                 <p class="display-3 fw-bold">Nome artista</p>
-                                <p>numero ascoltatori mensili</p>
+                                <p class="d-none d-lg-block d-xl-block">numero ascoltatori mensili</p>
                             </div>
                         </div>
+                        <p class=" d-block d-sm-block d-md-none">numero ascoltatori mensili</p>
                     </div>
 
                     <!--bottoni-->
-                    <div class="col-12">
+                    <div class="col-12 d-none d-lg-block d-xl-none">
                         <div class="d-flex align-items-center mt-4 mb-3 ps-3">
                             <button type="button" class="btn play-btn me-4"><i class="fa-solid fa-play"></i></button>
                             <span class="border px-2 me-4">FOLLOWING</span>
@@ -102,7 +103,7 @@
                         </div>
                     </div>
                     <!--bottoni RESPONSIVE-->
-                    <div class="col-12 d-none">
+                    <div class="col-12 d-block d-sm-block d-md-none">
                         <div class="d-flex align-items-center justify-content-between mt-4 mb-3 ps-3">
                             <div>
                                 <button class="btn px-2 me-4">Seguiti</button>
@@ -117,7 +118,7 @@
 
                     <!--contenuto-->
                     <div class="col-12">     
-                        <div class="row">
+                        <div class="row flex-column flex-sm-column  flex-md-row flex-lg-row">
                             <div class="col-12 col-md-8 order-2 order-sm-2 order-md-2 order-lg-1">
                                 <h3 class="ps-3">Popolari</h3>
                                 <table class="table" id="artistTable">
