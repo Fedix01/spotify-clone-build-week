@@ -21,8 +21,7 @@ body {
     background-color: #1E1E1E ; /*sistemare, deve essere gradiente*/
 }
 
-.left-btn,
-.right-btn {
+.left-btn {
     height: 30px;
     width: 30px;
     margin-left: 5px;
@@ -32,6 +31,29 @@ body {
     color: white;
     background-color: black;
 }
+
+.right-btn {
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 15px;
+    color: grey;
+    background-color: black;
+}
+
+.right-btn-sm {
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    background-color: grey;
+}
+
 
 .user-img {
     height: 15px;
@@ -107,11 +129,12 @@ i.fa-play {
 /*responsive*/
 
 @media screen and (max-width: 768px) {
-    div.sidebar-left {
+    div.sidebar-left, div.side-bar-right {
         display: none;
     }
 
-    div.side-bar-right {
+    #userDropdown, #arrows {
         display: none;
     }
+
 }
