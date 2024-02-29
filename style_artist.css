@@ -1,0 +1,140 @@
+/*MAIN PAGE*/
+body {
+    background-color: black;
+    color: white;
+}
+
+.side-bar-left,
+.center-content,
+.side-bar-right {
+    height: 90vh;
+}
+
+.command-bar{
+    position: fixed;
+    bottom: 0;
+    height: 10vh;
+    background-color: rgb(111, 108, 108);
+}
+
+.center-content {
+    background-color: #1E1E1E ; /*sistemare, deve essere gradiente*/
+}
+
+.left-btn {
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    background-color: black;
+}
+
+.right-btn {
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 15px;
+    color: grey;
+    background-color: black;
+}
+
+.right-btn-sm {
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    background-color: grey;
+}
+
+
+.user-img {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.user-btn {
+    height: 30px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    background-color: black;
+}
+
+.home a,
+.search a,
+.books a,
+.playlist a,
+.liked a,
+.episodes a {
+    font-size: 9pt;
+    color: white;
+    text-decoration: none;
+}
+
+
+/* *ARTIST PAGE*/
+.jumbotron {
+    height: 45vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.scrollbar {
+    overflow-y: scroll;
+}
+
+#jumboTitle div div span.bg-primary {
+    border-radius: 50%;
+}
+
+
+/*play button*/
+i.fa-play {
+    color: black;
+}
+
+.play-btn {
+    background-color: #16D561;
+    border-radius: 50%;
+}
+
+/*classi JS*/
+.text-white {
+    color: white;
+}
+
+.img-tracklist {
+    width: 3em;
+}
+
+.img-favourite {
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+}
+
+
+/*responsive*/
+
+@media screen and (max-width: 992px) {
+    div.sidebar-left, div.side-bar-right {
+        display: none;
+    }
+
+    #userDropdown, #arrows {
+        display: none;
+    }
+
+}

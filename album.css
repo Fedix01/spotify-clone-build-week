@@ -1,0 +1,152 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+/* .side-bar-left,
+.center-content,
+.side-bar-right {
+    height: 90vh;
+    border: 1px solid white;
+}
+
+.command-bar {
+    height: 10vh;
+    border: 1px solid white;
+} */
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 30rem;
+    overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+}
+
+.command-left,
+.command-center,
+.command-right {
+    border: 1px solid white;
+    height: 10vw;
+}
+
+.center-content {
+    background-color: rgb(15, 15, 15);
+}
+
+.left-btn,
+.right-btn {
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    background-color: black;
+}
+
+.user-img {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.user-btn {
+    height: 30px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    background-color: black;
+}
+
+.home a,
+.search a,
+.books a,
+.playlist a,
+.liked a,
+.episodes a {
+    font-size: 9pt;
+    color: white;
+    text-decoration: none;
+}
+
+
+
+
+
+
+/* album css */
+.album-img {
+    width: 300px;
+}
+
+.artist-img {
+    width: 30px;
+    border-radius: 50%;
+}
+
+.table {
+    color: lightgray;
+}
+
+
+
+
+.bg-container {
+    height: 5.5rem;
+    background-color: #282828;
+}
+
+.playerControls .row {
+    justify-content: space-between;
+}
+
+.playerControls a img {
+    width: 14px;
+    margin-top: 1rem;
+    filter: brightness(60%);
+}
+
+.playerControls a:hover {
+    filter: brightness(80%);
+    color: #282828 !important;
+}
+
+.progress {
+    color: white;
+    background-color: #414141;
+    height: 3px;
+}
+
+.playBar p {
+    margin-bottom: 20px;
+    color: white;
+}
+
+.img-placeholder {
+    width: 50px;
+    height: 50px;
+    background-color: black;
+}
+
+.form-range {
+    width: 35%;
+    height: 0.8rem;
+}
+
+.progress-bar {
+    width: 400px;
+}
+
+#player {
+    text-align: center;
+}
+
+.play-btn {
+    font-size: 25px;
+}
