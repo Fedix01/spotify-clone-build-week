@@ -103,3 +103,15 @@ i.fa-play {
     height: 3em;
 }
 
+
+/*responsive*/
+
+@media screen and (max-width: 768px) {
+    div.sidebar-left {
+        display: none;
+    }
+
+    div.side-bar-right {
+        display: none;
+    }
+}
