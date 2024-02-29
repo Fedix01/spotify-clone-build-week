@@ -4,9 +4,17 @@ const tableContent = document.getElementById("dynamicRows");
 
 let countTrack = 1;
 
+const playerBtn = document.getElementById("playerBtn");
+
 const endpoint = "https://striveschool-api.herokuapp.com/api/deezer/album/";
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
+
+const songsSide = document.getElementById("songsSide");
+
+const albumContentMobile = document.getElementById("album-content-mobile");
+
+const songsMob = document.getElementById("songs-mob")
 
 window.onload = getFromApi()
 
@@ -16,6 +24,7 @@ async function getFromApi() {
         const json = await results.json();
         console.log(json)
         createHtml(json)
+        createHtmlMob(json)
     } catch (error) {
         console.log(error)
     }
@@ -122,6 +131,7 @@ function createHtml(album) {
 }
 
 function createTable(track) {
+    console.log(track)
     let tRows = document.createElement("tr");
 
     let trackNum = document.createElement("th");
@@ -135,7 +145,7 @@ function createTable(track) {
     trackTitleBox.innerHTML = `${track.title}<br>${track.artist.name}`;
 
     trackTitleCont.addEventListener("click", () => {
-        bottomSong(track.title, track.artist.name, track.album.cover_small)
+        bottomSong(track.title, track.artist.name, track.album.cover_small, track.preview)
     })
 
     trackTitleCont.appendChild(trackTitleBox);
@@ -152,9 +162,14 @@ function createTable(track) {
     tRows.appendChild(trackDuration);
 
     tableContent.appendChild(tRows);
+
+
+
 }
 
-function bottomSong(title, artist, albumImg) {
+// Navbar bottom player
+
+function bottomSong(title, artist, albumImg, preview) {
     const bottomBarSong = document.getElementById("song-content");
 
     bottomBarSong.innerHTML = "";
@@ -178,5 +193,160 @@ function bottomSong(title, artist, albumImg) {
 
     bottomBarSong.appendChild(bottomCont);
 
+    playerBtn.addEventListener("click", () => {
+        playMusic(preview)
+    })
 
+    let sideList = document.createElement("li");
+    sideList.innerText = title;
+    sideList.style.listStyle = "none";
+    sideList.classList.add("py-2");
+
+    songsSide.appendChild(sideList)
+
+}
+
+function playMusic(url) {
+
+    let mySong = new Audio(url);
+
+    if (mySong.paused) {
+        mySong.play();
+        playerBtn.classList.remove("fa-solid", "fa-play")
+        playerBtn.classList.add("fa-solid", "fa-pause");
+    } else if (!mySong.paused) {
+        mySong.pause();
+        playerBtn.classList.remove("fa-solid", "fa-pause");
+        playerBtn.classList.add("fa-solid", "fa-play")
+    }
+    // let isPlaying = false;
+
+    // isPlaying ? mySong.pause() : mySong.play();
+
+
+    // mySong.onplaying = function () {
+    //     isPlaying = true;
+    // };
+    // mySong.onpause = function () {
+    //     isPlaying = false;
+    // };
+
+}
+
+function createHtmlMob(album) {
+
+    let topAlbumCont = document.createElement("div");
+
+    let imgCont = document.createElement("div");
+    imgCont.classList.add("d-flex", "justify-content-center");
+
+    let albumImg = document.createElement("img");
+    albumImg.src = album.cover;
+    albumImg.classList.add("img-fluid", "album-img-mob");
+
+    let infoCont = document.createElement("div");
+    infoCont.classList.add("ms-1")
+
+
+    let albumTitle = document.createElement("h2");
+    albumTitle.innerText = album.title;
+    albumTitle.style.fontSize = "20px";
+
+    let artistInfoCont = document.createElement("div");
+    artistInfoCont.style.marginTop = "10px";
+
+
+    let artistImg = document.createElement("img");
+    artistImg.src = album.artist.picture;
+    artistImg.classList.add("artist-img");
+
+    let artistTitle = document.createElement("span");
+    artistTitle.innerHTML = ` ${album.artist.name}<br>Album · ${album.release_date}`;
+
+    artistInfoCont.appendChild(artistImg);
+    artistInfoCont.appendChild(artistTitle);
+
+    imgCont.appendChild(albumImg);
+
+    infoCont.appendChild(albumTitle);
+    infoCont.appendChild(artistInfoCont);
+
+
+    topAlbumCont.appendChild(imgCont);
+    topAlbumCont.appendChild(infoCont);
+
+    albumContentMobile.appendChild(topAlbumCont);
+
+
+    // barra comandi
+
+    let middleAlbumCont = document.createElement("div");
+    middleAlbumCont.classList.add("d-flex", "mt-3", "align-items-center", "justify-content-between");
+
+    let heartBtn = document.createElement("i");
+    heartBtn.classList.add("fa-regular", "fa-heart", "p-2");
+    heartBtn.style.fontSize = "20px";
+    heartBtn.style.cursor = "pointer";
+
+    let downloadBtn = document.createElement("i");
+    downloadBtn.classList.add("fa-solid", "fa-circle-arrow-down", "p-2");
+    downloadBtn.style.fontSize = "20px";
+    downloadBtn.style.cursor = "pointer";
+
+
+    let dotsBtn = document.createElement("i");
+    dotsBtn.classList.add("fa-solid", "fa-ellipsis", "p-2");
+    dotsBtn.style.fontSize = "20px";
+    dotsBtn.style.cursor = "pointer";
+
+    let playBtnCont = document.createElement("div");
+
+
+    let playBtn = document.createElement("i");
+    playBtn.classList.add("fa-solid", "fa-circle-play", "p-3", "me-2");
+    playBtn.style.color = "#1ed75f";
+    playBtn.style.fontSize = "50px";
+    playBtn.style.cursor = "pointer";
+
+    let groupBtn = document.createElement("div");
+
+
+
+    playBtnCont.appendChild(playBtn);
+
+    groupBtn.appendChild(heartBtn);
+    groupBtn.appendChild(downloadBtn);
+    groupBtn.appendChild(dotsBtn);
+
+    middleAlbumCont.appendChild(groupBtn);
+    middleAlbumCont.appendChild(playBtnCont);
+
+    albumContentMobile.appendChild(middleAlbumCont);
+
+    // tabella con canzoni album
+
+    let allTracks = album.tracks.data;
+    allTracks.forEach((track) => {
+        createSongsMob(track)
+    })
+
+
+}
+
+function createSongsMob(track) {
+    console.log(track)
+    let songCont = document.createElement("div");
+    songCont.classList.add("d-flex", "align-items-center", "justify-content-between", "my-2")
+
+    let songInfo = document.createElement("h4");
+    songInfo.innerHTML = `${track.title}<br>${track.artist.name}`;
+    songInfo.style.fontSize = "15px";
+
+    let dots = document.createElement("i");
+    dots.classList.add("fa-solid", "fa-ellipsis-vertical");
+
+    songCont.appendChild(songInfo);
+    songCont.appendChild(dots);
+
+    songsMob.appendChild(songCont)
 }

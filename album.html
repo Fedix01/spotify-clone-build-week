@@ -56,9 +56,14 @@
                         </a>
                     </div>
                 </div>
+                <div>
+                    <ul id="songsSide">
+
+                    </ul>
+                </div>
             </div>
             <!-- center content -->
-            <div class="col-8 center-content px-4">
+            <div class="col-12 col-md-8 center-content px-4">
                 <div class="row">
                     <div class="col-12 d-flex justify-content-between">
                         <div>
@@ -77,6 +82,14 @@
 
                 </div>
                 <div class="row" id="album-content">
+
+                </div>
+                <div class="row" id="album-content-mobile">
+
+
+                </div>
+
+                <div id="songs-mob">
 
                 </div>
                 <div class="table-wrapper-scroll-y my-custom-scrollbar">
@@ -111,7 +124,10 @@
         </div>
     </div> -->
 
-            <div class="container-fluid fixed-bottom bg-container pt-1">
+
+            <!-- Navbar player bottom -->
+
+            <div class="container-fluid fixed-bottom bg-container bottomPlayer pt-1">
                 <div class="row align-items-center">
                     <div class="col-md-4">
                         <div id="song-content">
@@ -124,7 +140,9 @@
                     </div>
                     <div class="col-md-4 d-flex justify-content-center">
                         <div id="player">
-                            <i class="fa-solid fa-play mb-3 play-btn"></i>
+                            <i class="fa-solid fa-backward-step me-4 backward"></i>
+                            <i class="fa-solid fa-play mb-3 play-btn" id="playerBtn"></i>
+                            <i class="fa-solid fa-forward-step ms-4 forward"></i>
                             <div class="progress">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
                                     aria-valuemax="100"></div>

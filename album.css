@@ -95,27 +95,17 @@ body {
 }
 
 
+.album-img-mob {
+    width: 200px;
+}
 
+/* Navbar bottom player */
 
 .bg-container {
     height: 5.5rem;
     background-color: #282828;
 }
 
-.playerControls .row {
-    justify-content: space-between;
-}
-
-.playerControls a img {
-    width: 14px;
-    margin-top: 1rem;
-    filter: brightness(60%);
-}
-
-.playerControls a:hover {
-    filter: brightness(80%);
-    color: #282828 !important;
-}
 
 .progress {
     color: white;
@@ -148,5 +138,34 @@ body {
 }
 
 .play-btn {
-    font-size: 25px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.backward,
+.forward {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+@media screen and (max-width:768px) {
+    .sidebar-left {
+        display: none;
+    }
+
+    .side-bar-right {
+        display: none;
+    }
+
+    .my-custom-scrollbar {
+        display: none;
+    }
+
+    .bottomPlayer {
+        display: none;
+    }
+
+    #album-content {
+        display: none;
+    }
 }
