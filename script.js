@@ -1,136 +1,103 @@
-// codice sidebar destra:
 const btnRightClose = document.querySelector(".top-right-btn.close");
 const sidebarRight = document.querySelector(".sidebar-right");
 const centerContent = document.querySelector(".center-content");
 const hiddenPostsBtn = document.querySelector(".hidden-posts");
+const searchBtn = document.querySelector(".searchBtn");
+const searchBar = document.querySelector(".ipt-src");
+const searchInput = document.querySelector(".input-search");
+const node = document.querySelector(".row.node");
+const btmHomeBtn = document.querySelector(".bottom-home-btn");
+const btmSearchBtn = document.querySelector(".bottom-search-btn");
+const otherTitle = document.querySelector(".other-title");
 
-const closeRight = () => {
-  sidebarRight.classList.add("d-none");
-  centerContent.classList.add("col-10");
-  centerContent.classList.remove("col-8");
-  hiddenPostsBtn.innerText = "VISUALIZZA ANNUNCI";
-};
+const closeRight = ()=>{
+    sidebarRight.classList.add("d-none");
+    centerContent.classList.remove("col-lg-8");
+    centerContent.classList.add("col-lg-10");
+    hiddenPostsBtn.innerText = "VISUALIZZA ANNUNCI";
+}
 
-const openRight = () => {
-  sidebarRight.classList.toggle("d-none");
-  centerContent.classList.toggle("col-10");
-  centerContent.classList.toggle("col-8");
-  if (hiddenPostsBtn.innerText === "NASCONDI ANNUNCI") {
-    hiddenPostsBtn.innerHTML = "VISUALIZZA ANNUNCI";
-  } else {
-    hiddenPostsBtn.innerText = "NASCONDI ANNUNCI";
-  }
-};
-
-
-/* Codice per la ricerca . 
-API : https://striveschool-api.herokuapp.com/api/deezer/search?=q{query}
-*/
-
-let searchInput = document.getElementById("search-input");
-let searchBtn = document.getElementById("search-btn");
-let searchValue = undefined;
-let songsResultsBox = document.getElementById('songs-result')
-let albumsResultsBox = document.getElementById('albums-result')
-let defaultContentBox = document.getElementById('content-center')
-
-function searchSongs() {
-    searchInput.classList.toggle("d-none")
-    searchValue = searchInput.value;
-    // Dato che l'utente clicca sul tasto sia per far comparire l'input che per eseguire la ricerca,
-    // controlliamo che non venga fatta la fetch quando è ancora inizialmente vuoto
-    if (searchValue != "" ) {
-        getResults(searchValue)
+const toggleRight = ()=>{
+    sidebarRight.classList.toggle("d-none");
+    
+    if(hiddenPostsBtn.innerText === "NASCONDI ANNUNCI"){
+        hiddenPostsBtn.innerHTML = "VISUALIZZA ANNUNCI";
+        centerContent.classList.remove("col-lg-8");
+    centerContent.classList.add("col-lg-10");
+    }else{
+        hiddenPostsBtn.innerText = "NASCONDI ANNUNCI";
+        centerContent.classList.add("col-lg-8");
+    centerContent.classList.remove("col-lg-10");
     }
 }
 
-async function getResults(query) {
-  try {
-    const res = await fetch(
-      `https://striveschool-api.herokuapp.com/api/deezer/search?q=${query}`
-    );
-    const json = await res.json();
-    searchInput.classList.toggle("d-none")
-    songsResultsBox.innerHTML = ""; 
-    defaultContentBox.classList.toggle("d-none")
-    songsResultsBox.classList.toggle("d-none")
-    json.data.forEach( (single_song) => {
-       createResultingSongs(single_song)
-    })
-    console.log(json);
-  } catch (error) {
-    console.log(error);
-  }
+const srcBarDisp = ()=>{
+    searchBar.classList.remove("d-none");
 }
 
-let createResultingSongs = ({ title, artist, album, preview }) => {
-       // My song template:
-    // <div class="text-light p-3 text-center">
-    //   <img src="" alt="No image here...">
-    //   <h6 class="mt-2 mb-0">Flower</h6>
-    //   <a href="index.html?q=[song.artist.id]">Artista</a>
-    // </div>
+const ifEnter = (event)=>{
+    if(event.key === "Enter"){
+        searchBar.classList.add("d-none");
+        let src = searchInput.value;
+        otherTitle.innerText = "Risultati della tua ricerca";
+        console.log(searchInput.value);
+        searchInput.value = "";
+        fetchFnc(src);
+    }
+}
 
-    // <i class="fa-regular fa-circle-play"></i>
+const fetchFnc = async (idSearch)=>{
+    try{
+        const response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${idSearch}`);
+        let json = await response.json();
+        displayFnc(json.data);
 
-    let songBox = document.createElement("div");
-    songBox.classList.add("text-light", "p-3", "text-center", "col-3");
-    let songImg = document.createElement("img");
-    songImg.src = album.cover_medium;
-    let songTitle = document.createElement("h6");
-    songTitle.classList.add("mt-2", "mb-0");
-    songTitle.innerText = title;
-    let songArtist = document.createElement("a");
-    songArtist.href = `artist.html?id=${artist.id}`;
-    songArtist.innerText = artist.name;
-    let playBtn = document.createElement("i");
-    playBtn.classList.add("fa-regular", "fa-circle-play", "ml-2");
-    playBtn.addEventListener("click", () => {
-        playSong(preview);
+    }catch(err){
+        console.log(err);
+    }
+};
+
+const displayFnc = (array) => {
+    node.innerHTML = "";
+    array.forEach(element => {
+        let side = document.createElement("div");
+        side.classList.add("col-sm-6", "col-md-4", "col-lg-3", "my-2");
+        node.appendChild(side)
+        
+        let content = document.createElement("div");
+        content.classList.add("p-3");
+        content.style.backgroundColor = "rgb(18, 18, 18)";
+        content.style.borderRadius = "10px";
+        content.style.height = "100%"
+        side.appendChild(content);
+
+        let img = document.createElement("img");
+        img.src = element.album.cover_medium;
+        img.style.width = "100%";
+        content.appendChild(img);
+
+        let art = document.createElement("p");
+        art.classList.add("pt-2", "mb-1");
+        art.innerText = element.artist.name;
+        content.appendChild(art);
+
+        let title = document.createElement("p");
+        title.style.color = "grey";
+        title.innerText = element.album.title;
+        content.appendChild(title);
+
     });
-
-    songBox.appendChild(songImg);
-    songBox.appendChild(songTitle);
-    songBox.appendChild(songArtist);
-    songBox.appendChild(playBtn);
-
-    songsResultsBox.appendChild(songBox);    
-}
-
-// Funzione per riprodurre la demo del brano:
-function playSong(url) {
-    // console.log(url);
-    let mySong = new Audio(url);
-    mySong.play();
 }
 
 
 
-// Navbar bottom player in HOMEPAGE ((FEDERICO))
-
-// function bottomSong(title, artist, albumImg) {
-//   const bottomBarSong = document.getElementById("song-content");
-
-//   bottomBarSong.innerHTML = "";
-//   let bottomCont = document.createElement("div");
-//   bottomCont.classList.add("d-flex", "align-items-center", "p-3")
-
-//   let img = document.createElement("img");
-//   img.src = albumImg;
-//   img.style.height = "50px";
-
-//   let infoArtist = document.createElement("span");
-//   infoArtist.innerHTML = `${title}<br>${artist}`;
-//   infoArtist.classList.add("ms-3");
-
-//   let icon = document.createElement("i");
-//   icon.classList.add("fa-regular", "fa-heart", "ms-4");
-
-//   bottomCont.appendChild(img);
-//   bottomCont.appendChild(infoArtist);
-//   bottomCont.appendChild(icon)
-
-//   bottomBarSong.appendChild(bottomCont);
 
 
-// }
+fetchFnc();
+
+btnRightClose.addEventListener("click", closeRight);
+hiddenPostsBtn.addEventListener("click", toggleRight);
+searchBtn.addEventListener("click", srcBarDisp);
+searchInput.addEventListener("keyup", (event)=>{ifEnter(event)});
+btmHomeBtn.addEventListener("click", ()=>{location.href = "index.html"});
+btmSearchBtn.addEventListener("click", ()=>{location.href = "search.html"});

@@ -1,19 +1,43 @@
 body{
-    background-color: #000000;
+    position: relative;
+    background-color: black;
     color: white;
 }
 
-.side-bar-left, .center-content, .side-bar-right{
-    height: 95vh;
+.sidebar-left, .center-content, .sidebar-right{
+    height: 90vh;
+    position: fixed;
 }
 
-.center-content {
-    overflow-y: scroll;
+.sidebar-right{
+    top: 0;
+    right: 0;
 }
-
 
 .center-content{
-    background-color: #1F1F1F;
+    left: 17vw;
+}
+
+
+
+.command-bar{
+    height: 10%;
+    background-color: rgb(15, 15, 15);
+    border-top: 1px solid grey;
+}
+
+.command-left, .command-center, .command-right{
+    max-height: 10vw;
+}
+
+.center-content{
+    background-color: rgb(15, 15, 15);
+}
+
+.dynamic-content{
+    height: 84vh;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 .left-btn, .right-btn{
@@ -49,6 +73,11 @@ a{
     text-decoration: none;
 }
 
+a:hover{
+    color: white;
+    transform: scale(1.05);
+}
+
 .fa-heart{
     color: rgb(161, 0, 179);
 }
@@ -73,12 +102,17 @@ a{
     color: white;
 }
 
+.top-bar{
+    height: 6vh;
+}
+
 .card-top{
+    height: 28vh;
     background-image: linear-gradient(10deg, black, rgb(30, 30, 30));
 }
 
 .img-card-top{
-    height: 125px;
+    height: 12vw;
 }
 
 .p-album{
@@ -119,6 +153,11 @@ a{
     background-color: rgb(15, 15, 15);
 }
 
+.hidden-posts:hover{
+    color:white;
+    transform: scale(1.05);
+}
+
 .top-right-btn{
     font-size: 10pt;
     color: white;
@@ -126,105 +165,174 @@ a{
     background-color: black;
 }
 
-#songs-result {
-    position: relative; 
-    height: 90vh; 
-    overflow: auto; 
-}
-
-/*SCROLLBAR*/
-.scrollbar {
-    height: 70vh;
-    overflow-y: scroll;
-}
-
-.list-group-item {
-    background-color: black;
-    border: none;
-    color: #7D7D7D;
-    font-size: 9pt;
-    padding-top: 0;
-    padding-bottom: 0;
-}
-
-/* USER DROPDOWN BUTTON*/
-button.user-button {
-    background-color: black;
+.input-search{
+    width: 100%;
     color: white;
-    border-radius: 999px;
-    border: none;
-    padding: 0;
+    background-color: rgb(24, 24, 24);
+    border-radius: 15px;
+    border: 1px solid white;
 }
 
-button.user-button::after {
-    color: white;
-    margin-right: 0.4em;
-}
-
-.user-button img {
-    width: 1.5em;
-    height: 1.5em;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.dropdown-menu {
-    background-color: black;
-}
-
-.dropdown-item:hover {
-    background-color: rgba(128, 128, 128, 0.527);
-}
-
-/*CARD PLACEHOLDER*/
 .evening-img{
     border-radius: 3px 0px 0px 3px;
-    height: 5em;
+    height: 80px;
 }
 
-div.card {
-    background-color: #7D7D7D;
+.card-content{
+    border-radius: 3px;
+    background-color: rgb(27, 27, 19);
 }
 
-
-
-
-/* Navbar bottom player */
-.bg-container {
-    height: 12vh;
-    background-color: #282828;
+.card-title{
+    width: 100%;
 }
 
-.progress {
+.post-right-img{
+    height: 30px;
+    border-radius: 15px;
+}
+
+.post-name{
+    font-weight: 500;
+}
+
+.post-time{
+    font-weight: 100;
+    font-size: 10pt;
+}
+
+.post-center{
+    max-width: 50%;
+    font-size: 10pt;
+}
+
+.post-center + ul li, .post-bottom{
+    max-width: 50%;
+    font-size: 10pt;
+}
+
+.post-center + ul{
+    padding-left: 5px;
+}
+
+.fa-circle{
+    font-size: 4pt;
+}
+
+.sidebar-right .col-12.d-flex.p-0{
+    width: 16.6vw;
+}
+
+.resp-bottom-bar{
+    height: 10vh;
+    background-color: rgba(30, 30, 30, 0.5);
+}
+
+.resp-bottom-bar .fa-solid{
+    font-size: 15pt;
+    padding: 20px;
+    
+}
+
+.resp-bottom-bar p{
+    font-size: 8pt;
+}
+
+.resp-bottom-bar > .col-8.col-md-4 > div{
+    cursor: pointer;
+}
+
+.resp-input-search{
+    width: 100%;
+    border: none;
     color: white;
-    background-color: #414141;
-    height: 3px;
+    background-color: rgb(25, 25, 25);
 }
 
-.playBar p {
-    margin-bottom: 20px;
-    color: white;
+.card-search{
+    position: relative;
+    height: 25vw;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
-.img-placeholder {
-    width: 50px;
-    height: 50px;
-    background-color: black;
+.img-search-card{
+    position: absolute;
+    height: 17vw;
+    top: 5vw;
+    right: -3vw;
+    rotate: 30deg;
 }
 
-.form-range {
-    width: 35%;
-    height: 0.8rem;
+.podcast, .for-you, .new-entry,
+.pop, .hip-hop, .dance-electronic,
+.latin, .charts{
+    overflow: hidden;
 }
 
-.progress-bar {
-    width: 400px;
+.podcast{
+    background-color: orangered;
 }
 
-#player {
-    text-align: center;
+.for-you{
+    background-color: blue;
 }
 
-.play-btn {
-    font-size: 25px;
+.new-entry{
+    background-color: fuchsia;
+}
+
+.pop{
+    background-color: green;
+}
+
+.hip-hop{
+    background-color: orange;
+}
+
+.dance-electronic{
+    background-color: rgb(255, 89, 0);
+}
+
+.latin{
+    background-color: fuchsia;
+}
+
+.charts{
+    background-color: purple;
+}
+
+input.resp-input-search + i.fa-solid.fa-magnifying-glass{
+    position: absolute;
+    top: 83px;
+    left: 30px;
+}
+
+footer{
+    height: 10vh;
+}
+
+@media screen and (max-width: 992px){
+    .top-bar, .sidebar-left,
+    .sidebar-right, .command-bar{
+        display: none !important;
+    }
+
+    .center-content{
+        left: 0;
+    }
+
+    .dynamic-content{
+        height: 100vh;
+    }    
+}
+
+@media screen and (max-width: 575px){
+    .evening-img{
+        height: 200px;
+    }
+
+    .evening-title{
+        font-size: 20pt;
+    }
 }
