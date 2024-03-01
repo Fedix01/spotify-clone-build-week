@@ -336,3 +336,25 @@ footer{
         font-size: 20pt;
     }
 }
+
+/*SCROLLBAR*/
+.side-scrollbar {
+    height: 90vh;
+    overflow-y: scroll;
+}
+
+.list-group-item {
+    background-color: black;
+    border: none;
+    color: #7D7D7D;
+    font-size: 9pt;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/*OFFCANVAS*/
+div.user-box img {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+}
