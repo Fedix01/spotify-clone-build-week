@@ -95,18 +95,28 @@
             <!-- center content -->
             <div class="col-12 col-lg-8 center-content px-4">
                 <div class="row">
-                    <div class="top-bar col-12 d-flex justify-content-between">
+                    <div class="top-bar col-12 d-flex justify-content-between align-items-center">
                         <div>
                             <button class="left-btn"><i class="fa-solid fa-chevron-left"></i></button>
                             <button class="right-btn"><i class="fa-solid fa-chevron-right"></i></button>
                         </div>
-                        <div>
+                        <div class="dropdown" id="userDropdown">
+                            <button class="dropdown-toggle user-button d-flex align-items-center" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://bit.ly/48DTe9o" alt="user_image"><span class="ps-2">Lidia Nautilus...</span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item text-white" href="#">Action</a></li>
+                                <li><a class="dropdown-item text-white" href="#">Another action</a></li>
+                                <li><a class="dropdown-item text-white" href="#">Something else here</a></li>
+                            </ul>
+                        </div>
+                        <!-- <div>
                             <button class="user-btn d-flex justify-content-center align-items-center" type="button">
                                 <img src="https://www.downloadclipart.net/large/girl-smile-png-transparent-picture.png" alt="user-img" class="user-img me-2">
                                 <p class="m-0">Lidia Nautilus</p>
                                 <i class="fa-solid fa-caret-down ms-2"></i>
                             </button>
-                        </div>
+                        </div> -->
                     </div>
                     
                     <div class="dynamic-content">
