@@ -408,3 +408,45 @@ button.user-button::after {
 .dropdown-item:hover {
     background-color: rgba(128, 128, 128, 0.527);
 }
+
+/* Navbar bottom player */
+
+.bg-container {
+    height: 5.5rem;
+    background-color: #282828;
+}
+
+
+.progress {
+    color: white;
+    background-color: #414141;
+    height: 3px;
+}
+
+.playBar p {
+    margin-bottom: 20px;
+    color: white;
+}
+
+.img-placeholder {
+    width: 50px;
+    height: 50px;
+    background-color: black;
+}
+
+.form-range {
+    width: 35%;
+    height: 0.8rem;
+}
+
+.progress-bar {
+    width: 400px;
+}
+
+#player {
+    text-align: center;
+}
+
+.play-btn {
+    font-size: 25px;
+}

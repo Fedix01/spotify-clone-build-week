@@ -101,3 +101,32 @@ searchBtn.addEventListener("click", srcBarDisp);
 searchInput.addEventListener("keyup", (event)=>{ifEnter(event)});
 btmHomeBtn.addEventListener("click", ()=>{location.href = "index.html"});
 btmSearchBtn.addEventListener("click", ()=>{location.href = "search.html"});
+
+
+// Navbar bottom player
+// function bottomSong(title, artist, albumImg) {
+//     const bottomBarSong = document.getElementById("song-content");
+
+//     bottomBarSong.innerHTML = "";
+//     let bottomCont = document.createElement("div");
+//     bottomCont.classList.add("d-flex", "align-items-center", "p-3")
+
+//     let img = document.createElement("img");
+//     img.src = albumImg;
+//     img.style.height = "50px";
+
+//     let infoArtist = document.createElement("span");
+//     infoArtist.innerHTML = `${title}<br>${artist}`;
+//     infoArtist.classList.add("ms-3");
+
+//     let icon = document.createElement("i");
+//     icon.classList.add("fa-regular", "fa-heart", "ms-4");
+
+//     bottomCont.appendChild(img);
+//     bottomCont.appendChild(infoArtist);
+//     bottomCont.appendChild(icon)
+
+//     bottomBarSong.appendChild(bottomCont);
+
+
+// }
