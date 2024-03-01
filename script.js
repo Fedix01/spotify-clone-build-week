@@ -1,3 +1,4 @@
+// codice sidebar destra:
 const btnRightClose = document.querySelector(".top-right-btn.close");
 const sidebarRight = document.querySelector(".sidebar-right");
 const centerContent = document.querySelector(".center-content");
@@ -24,7 +25,6 @@ const openRight = () => {
 
 /* Codice per la ricerca . 
 API : https://striveschool-api.herokuapp.com/api/deezer/search?=q{query}
-
 */
 
 let searchInput = document.getElementById("search-input");
