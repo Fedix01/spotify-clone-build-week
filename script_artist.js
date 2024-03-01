@@ -7,7 +7,6 @@ let artistID = 860;
 const endpoint = `https://striveschool-api.herokuapp.com/api/deezer/artist/`;
 const params = new URLSearchParams(window.location.search)
 const id = params.get("id")
-console.log(id)
 
 //NODI UTILI
 //sezione copertina:
@@ -24,11 +23,9 @@ async function getArtist () {
     try {
         let response = await fetch(endpoint+id);
         let object = await response.json();
-        console.log(object);
         createTitlePage (object);
         getTracks(object);
         innerFavourite(object);
-
     } catch (error) {
         console.log(error)
     }
@@ -50,12 +47,15 @@ async function getTracks ({tracklist}) {
         let response = await fetch(tracklist);
         let object = await response.json();
 
+        
+
         let [one, two, three, four, five] = object.data; // voglio solo le prime 5
         let tracksToShow = [];
         tracksToShow.push(one, two, three, four, five);
 
         tracksToShow.forEach(track => {
             showTracks(track);
+            createCardOthers (track);
 
         })
         
@@ -78,7 +78,7 @@ function showTracks ({album, title, duration, rank}) {
     let tableTh = document.createElement("th");
     let tableThNumber = listNumber;
     listNumber++;
-    tableTh.classList.add("text-white", "px-2")
+    tableTh.classList.add("text-white", "px-2", "font-size-10pt")
     tableTh.innerText = `${tableThNumber}`;
 
     //tableTD
@@ -87,16 +87,16 @@ function showTracks ({album, title, duration, rank}) {
     albumPrev.classList.add("img-tracklist");
     albumPrev.src = `${album.cover}`;
     let titleTrack = document.createElement("span");
-    titleTrack.classList.add("text-white", "fw-bold");
+    titleTrack.classList.add("text-white", "fw-bold", "font-size-10pt");
     titleTrack.innerText = `${title}`;
 
     let secondTableTd = document.createElement("td");
-    secondTableTd.classList.add("text-white", "ps-2");
+    secondTableTd.classList.add("text-white", "ps-2", "font-size-10pt");
     secondTableTd.innerText = `${rank}`;
     
 
     let thirdTableTd = document.createElement("td");
-    thirdTableTd.classList.add("text-white");
+    thirdTableTd.classList.add("text-white", "font-size-10pt");
     thirdTableTd.innerText = `${duration}`;
 
     tableTr.appendChild(tableTh);
@@ -110,10 +110,56 @@ function showTracks ({album, title, duration, rank}) {
 //funzione che aggiorna la sezione "Brani che ti piacciono":
 function innerFavourite ({name, picture}) {
     let favImg = document.querySelector("#favSongSection img");
-    favImg.classList.add("img-favourite", "mx-3");
+    favImg.classList.add("img-favourite", "me-3");
     favImg.src = `${picture}`;
     favImg.alt = "artist_image";
 
     let favSpan = document.querySelector("#favSongSection div span:last-of-type");
+    favSpan.classList.add("font-size-10pt");
     favSpan.innerText = `Di ${name}`;
+}
+
+//funzione che crea altri contenuti
+function createCardOthers ({artist, album}) {
+    let otherRow = document.getElementById("otherAlbum");
+
+    let otherCol = document.createElement("div");
+    otherCol.classList.add("col-12", "col-md-4", "col-lg-4");
+    otherRow.appendChild(otherCol);
+
+    let otherCard = document.createElement("div");
+    otherCard.classList.add("card");
+    otherCol.appendChild(otherCard);
+
+    let rowCard = document.createElement("div");
+    rowCard.classList.add("row");
+    otherCard.appendChild(rowCard);
+
+    let colCard = document.createElement("div");
+    colCard.classList.add("col-5");
+    rowCard.appendChild(colCard);
+
+    let imgCard = document.createElement("img");
+    imgCard.classList.add("img-fluid", "rounded-start");
+    imgCard.src = `${album.cover}`;
+    colCard.appendChild(imgCard);
+
+    let colCard2 = document.createElement("div");
+    colCard2.classList.add("col-7");
+    rowCard.appendChild(colCard2);
+
+    let cardBody = document.createElement("div");
+    cardBody.classList.add("card-body");
+    colCard2.appendChild(cardBody);
+
+    let cardTitle = document.createElement("p");
+    cardTitle.classList.add("card-title");
+
+    cardTitle.innerText = `${album.title}`
+    cardBody.appendChild(cardTitle);
+
+    let cardLink = document.createElement("a");
+    // cardLink.href = 
+    cardLink.innerText = `${artist.name}`
+    cardBody.appendChild(cardLink);
 }

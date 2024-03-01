@@ -18,7 +18,7 @@ body {
 }
 
 .center-content {
-    background-color: #1E1E1E ; /*sistemare, deve essere gradiente*/
+    background: linear-gradient(180deg, rgba(51,51,51,1) 35%, rgba(0,0,0,1) 100%);
 }
 
 .left-btn {
@@ -82,6 +82,50 @@ body {
     text-decoration: none;
 }
 
+/*SCROLLBAR*/
+.side-scrollbar {
+    height: 80vh;
+    overflow-y: scroll;
+}
+
+.list-group-item {
+    background-color: black;
+    border: none;
+    color: #7D7D7D;
+    font-size: 9pt;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* USER DROPDOWN BUTTON*/
+button.user-button {
+    background-color: black;
+    color: white;
+    border-radius: 999px;
+    border: none;
+    padding: 0;
+}
+
+button.user-button::after {
+    color: white;
+    margin-right: 0.4em;
+}
+
+.user-button img {
+    width: 1.5em;
+    height: 1.5em;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.dropdown-menu {
+    background-color: black;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(128, 128, 128, 0.527);
+}
+
 
 /* *ARTIST PAGE*/
 .jumbotron {
@@ -91,23 +135,48 @@ body {
     background-position: center;
 }
 
-.scrollbar {
-    overflow-y: scroll;
+i.fa-check {
+    color: #0D6EFD;
+}
+
+.font-size-10pt {
+    font-size: 10pt;
+}
+
+.font-size-9pt {
+    font-size: 9pt;
 }
 
 #jumboTitle div div span.bg-primary {
     border-radius: 50%;
 }
 
-
-/*play button*/
+/*bottoni under jumbotron*/
 i.fa-play {
     color: black;
 }
 
 .play-btn {
-    background-color: #16D561;
+    background-color: #1FDF64;
     border-radius: 50%;
+}
+
+div.d-flex i.fa-ellipsis, i.fa-ellipsis-vertical {
+    color: #7D7D7D;
+}
+
+.fa-shuffle {
+    color: #1FDF64;
+}
+
+.font-size-15pt {
+    font-size: 15pt;
+}
+
+.see-more {
+    background-color: transparent;
+    border: none;
+    color: #7D7D7D;
 }
 
 /*classi JS*/
@@ -123,6 +192,12 @@ i.fa-play {
     border-radius: 50%;
     width: 3em;
     height: 3em;
+}
+
+.text-overflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
