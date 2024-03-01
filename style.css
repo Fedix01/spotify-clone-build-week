@@ -136,6 +136,21 @@ a{
     overflow: auto; 
 }
 
+/*SCROLLBAR*/
+.scrollbar {
+    height: 70vh;
+    overflow-y: scroll;
+}
+
+.list-group-item {
+    background-color: black;
+    border: none;
+    color: #7D7D7D;
+    font-size: 9pt;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
 /* USER DROPDOWN BUTTON*/
 button.user-button {
     background-color: black;
