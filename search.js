@@ -4,20 +4,20 @@ const inputSearch = document.querySelector(".resp-input-search");
 const node = document.querySelector(".node");
 const titleSearch = document.querySelector(".dynamic-title");
 
-const ifEnter = (event) =>{
-    if(event.key === "Enter"){
+const ifEnter = (event) => {
+    if (event.key === "Enter") {
         titleSearch.innerText = "Risultati della tua ricerca";
         fetchFnc(inputSearch.value)
     }
 }
 
-const fetchFnc = async (idSearch)=>{
-    try{
+const fetchFnc = async (idSearch) => {
+    try {
         const response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${idSearch}`);
         let json = await response.json();
         displayFnc(json.data);
 
-    }catch(err){
+    } catch (err) {
         console.log(err);
     }
 };
@@ -28,7 +28,7 @@ const displayFnc = (array) => {
         let side = document.createElement("div");
         side.classList.add("col-6", "my-2");
         node.appendChild(side)
-        
+
         let content = document.createElement("div");
         content.classList.add("p-3");
         content.style.backgroundColor = "rgb(18, 18, 18)";
@@ -54,6 +54,6 @@ const displayFnc = (array) => {
     });
 }
 
-btmHomeBtn.addEventListener("click", ()=>{location.href = "index.html"});
-btmSearchBtn.addEventListener("click", ()=>{location.href = "search.html"});
+btmHomeBtn.addEventListener("click", () => { location.href = "index.html" });
+btmSearchBtn.addEventListener("click", () => { location.href = "search.html" });
 inputSearch.addEventListener("keyup", ifEnter);
