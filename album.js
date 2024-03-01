@@ -16,6 +16,42 @@ const albumContentMobile = document.getElementById("album-content-mobile");
 
 const songsMob = document.getElementById("songs-mob")
 
+
+const sidebarRight = document.querySelector(".sidebar-right");
+const centerContent = document.querySelector(".center-content");
+const hiddenPostsBtn = document.querySelector(".hidden-posts");
+const btnRightClose = document.querySelector(".top-right-btn.close");
+
+btnRightClose.addEventListener("click", () => {
+    closeRight()
+});
+hiddenPostsBtn.addEventListener("click", () => {
+    toggleRight()
+});
+
+// Sidebar closing
+
+const closeRight = () => {
+    sidebarRight.classList.add("d-none");
+    centerContent.classList.remove("col-lg-8");
+    centerContent.classList.add("col-lg-10");
+    hiddenPostsBtn.innerText = "VISUALIZZA ANNUNCI";
+}
+
+const toggleRight = () => {
+    sidebarRight.classList.toggle("d-none");
+
+    if (hiddenPostsBtn.innerText === "NASCONDI ANNUNCI") {
+        hiddenPostsBtn.innerHTML = "VISUALIZZA ANNUNCI";
+        centerContent.classList.remove("col-lg-8");
+        centerContent.classList.add("col-lg-10");
+    } else {
+        hiddenPostsBtn.innerText = "NASCONDI ANNUNCI";
+        centerContent.classList.add("col-lg-8");
+        centerContent.classList.remove("col-lg-10");
+    }
+}
+
 window.onload = getFromApi()
 
 async function getFromApi() {
@@ -34,7 +70,7 @@ function createHtml(album) {
     // parte superiore artista album
 
     let topAlbumCont = document.createElement("div");
-    topAlbumCont.classList.add("d-flex", "mt-5", "container-fluid", "align-items-center");
+    topAlbumCont.classList.add("d-md-flex", "d-none", "mt-5", "container-fluid", "align-items-center");
 
     let imgCont = document.createElement("div");
 
@@ -234,11 +270,13 @@ function playMusic(url) {
 }
 
 function createHtmlMob(album) {
+    albumContentMobile.classList.add("d-block", "d-md-none")
 
     let topAlbumCont = document.createElement("div");
 
+
     let imgCont = document.createElement("div");
-    imgCont.classList.add("d-flex", "justify-content-center");
+    imgCont.classList.add("d-flex", "justify-content-center", "my-4");
 
     let albumImg = document.createElement("img");
     albumImg.src = album.cover;
@@ -261,10 +299,17 @@ function createHtmlMob(album) {
     artistImg.classList.add("artist-img");
 
     let artistTitle = document.createElement("span");
-    artistTitle.innerHTML = ` ${album.artist.name}<br>Album · ${album.release_date}`;
+    artistTitle.innerHTML = ` ${album.artist.name}`;
+
+    let artistAlbum = document.createElement("h5");
+    artistAlbum.innerText = `Album · ${album.release_date}`;
+    artistAlbum.classList.add("mt-2")
+    artistAlbum.style.fontSize = "15px";
+    artistAlbum.style.color = "gray";
 
     artistInfoCont.appendChild(artistImg);
     artistInfoCont.appendChild(artistTitle);
+    artistInfoCont.appendChild(artistAlbum);
 
     imgCont.appendChild(albumImg);
 
@@ -335,17 +380,28 @@ function createHtmlMob(album) {
 
 function createSongsMob(track) {
     console.log(track)
+    songsMob.classList.add("d-block", "d-md-none")
     let songCont = document.createElement("div");
     songCont.classList.add("d-flex", "align-items-center", "justify-content-between", "my-2")
 
+    let songInfoBox = document.createElement("div");
     let songInfo = document.createElement("h4");
-    songInfo.innerHTML = `${track.title}<br>${track.artist.name}`;
+    songInfo.innerHTML = `${track.title}`;
     songInfo.style.fontSize = "15px";
+
+    let songArtist = document.createElement("h5");
+    songArtist.classList.add("mt-1")
+    songArtist.innerText = `${track.artist.name}`;
+    songArtist.style.color = "gray";
+    songArtist.style.fontSize = "15px";
 
     let dots = document.createElement("i");
     dots.classList.add("fa-solid", "fa-ellipsis-vertical");
 
-    songCont.appendChild(songInfo);
+    songInfoBox.appendChild(songInfo);
+    songInfoBox.appendChild(songArtist);
+
+    songCont.appendChild(songInfoBox);
     songCont.appendChild(dots);
 
     songsMob.appendChild(songCont)
