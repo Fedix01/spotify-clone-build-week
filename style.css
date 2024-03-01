@@ -179,3 +179,13 @@ button.user-button::after {
 .dropdown-item:hover {
     background-color: rgba(128, 128, 128, 0.527);
 }
+
+/*CARD PLACEHOLDER*/
+.evening-img{
+    border-radius: 3px 0px 0px 3px;
+    height: 5em;
+}
+
+div.card-evening {
+    background-color: #7D7D7D;
+}
