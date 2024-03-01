@@ -56,7 +56,7 @@ window.onload = getFromApi()
 
 async function getFromApi() {
     try {
-        const results = await fetch(`${endpoint}1121401`);
+        const results = await fetch(`${endpoint}${id}`);
         const json = await results.json();
         console.log(json)
         createHtml(json)
