@@ -115,14 +115,6 @@
                                 <li><a class="dropdown-item text-white" href="#">Something else here</a></li>
                             </ul>
                         </div>
-                        <!-- <div>
-                            <button class="user-btn d-flex justify-content-center align-items-center" type="button">
-                                <img src="https://www.downloadclipart.net/large/girl-smile-png-transparent-picture.png"
-                                    alt="user-img" class="user-img me-2">
-                                <p class="m-0">Lidia Nautilus</p>
-                                <i class="fa-solid fa-caret-down ms-2"></i>
-                            </button>
-                        </div> -->
                     </div>
 
                     <div class="dynamic-content">
@@ -275,32 +267,35 @@
             </div>
 
             <!-- bottom command bar -->
-            <div class="col-12 command-bar fixed-bottom">
-                <div class="row">
-                    <div class="col-4 command-left"></div>
-                    <div class="col-4 command-center">
-                        <div class="row d-flex justify-content-center">
-                            <div class="col-12 d-flex justify-content-center">
-                                <a href="#" type="button"><img class="player-btn" src="player-button/Shuffle.png"
-                                        alt="shuffle"></a>
-                                <a href="#" type="button"><img class="player-btn" src="player-button/Previous.png"
-                                        alt="previous"></a>
-                                <a href="#" type="button"><img class="player-btn" src="player-button/Play.png"
-                                        alt="play"></a>
-                                <a href="#" type="button"><img class="player-btn" src="player-button/Next.png"
-                                        alt="next"></a>
-                                <a href="" type="button"><img class="player-btn" src="player-button/Repeat.png"
-                                        alt="repeat"></a>
-                            </div>
-                            <div class="progress col-10">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
-                                    aria-valuemax="100">
-                                </div>
+            <div class="container-fluid fixed-bottom bg-container pt-1">
+                <div class="row align-items-center">
+                    <div class="col-md-4">
+                        <div id="song-content">
+                            <div class="d-flex align-items-center p-3">
+                                <div class="img-placeholder"></div>
+                                <span class="ms-3">Titolo <br> Artista</span>
+                                <i class="fa-regular fa-heart ms-3"></i>
                             </div>
                         </div>
                     </div>
-                    <div class="col-4 command-right">
-
+                    <div class="col-md-4 d-flex justify-content-center">
+                        <div id="player">
+                            <i class="fa-solid fa-play mb-3 play-btn"></i>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex align-items-center justify-content-center">
+                        <div id="tools">
+                            <i class="fa-solid fa-microphone px-2"></i>
+                            <i class="fa-solid fa-bars px-2"></i>
+                            <i class="fa-solid fa-headphones px-2"></i>
+                            <i class="fa-solid fa-volume-high px-2"></i>
+                            <input type="range" class="form-range" id="customRange1">
+                            <i class="fa-solid fa-arrows-left-right px-2"></i>
+                        </div>
                     </div>
                 </div>
             </div>
