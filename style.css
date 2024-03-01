@@ -40,6 +40,17 @@ body{
     overflow-x: hidden;
 }
 
+.dynamic-content::-webkit-scrollbar {
+    width: 6px;
+}
+.dynamic-content::-webkit-scrollbar-track {
+    background-color: black;
+}
+.dynamic-content::-webkit-scrollbar-thumb {
+    background-color: #7D7D7D;
+}
+
+
 .left-btn, .right-btn{
     height: 30px;
     width: 30px;
@@ -335,4 +346,107 @@ footer{
     .evening-title{
         font-size: 20pt;
     }
+}
+
+/*SCROLLBAR*/
+.side-scrollbar {
+    height: 90vh;
+    overflow-y: scroll;
+}
+
+.side-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+.side-scrollbar::-webkit-scrollbar-track {
+    background-color: black;
+}
+.side-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #7D7D7D;
+}
+
+.list-group-item {
+    background-color: black;
+    border: none;
+    color: #7D7D7D;
+    font-size: 9pt;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/*SIDEBAR DESTRA*/
+div.user-box img {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+}
+
+/* USER DROPDOWN BUTTON*/
+button.user-button {
+    background-color: black;
+    color: white;
+    border-radius: 999px;
+    border: none;
+    padding: 0;
+}
+
+button.user-button::after {
+    color: white;
+    margin-right: 0.4em;
+}
+
+.user-button img {
+    width: 1.5em;
+    height: 1.5em;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.dropdown-menu {
+    background-color: black;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(128, 128, 128, 0.527);
+}
+
+/* Navbar bottom player */
+
+.bg-container {
+    height: 5.5rem;
+    background-color: #282828;
+}
+
+
+.progress {
+    color: white;
+    background-color: #414141;
+    height: 3px;
+}
+
+.playBar p {
+    margin-bottom: 20px;
+    color: white;
+}
+
+.img-placeholder {
+    width: 50px;
+    height: 50px;
+    background-color: black;
+}
+
+.form-range {
+    width: 35%;
+    height: 0.8rem;
+}
+
+.progress-bar {
+    width: 400px;
+}
+
+#player {
+    text-align: center;
+}
+
+.play-btn {
+    font-size: 25px;
 }

@@ -14,6 +14,7 @@
 <body>
     <div class="container-fluid">
         <div class="row px-1">
+
             <!-- sidebar left -->
             <div class="col-2 sidebar-left">
                 <div class="head-left-cont col-12 px-0 ">
@@ -59,23 +60,69 @@
                         </a>
                     </div>
                 </div>
+                <!--sidebar let bottom-scrollbar-->
+                <div class="col-12 border-top side-scrollbar">
+                    <ul class="list-group">
+                        <li class="list-group-item">early stage emily syndrome (sett-ott 2022)</li>
+                        <li class="list-group-item">Be the Young</li>
+                        <li class="list-group-item">"..."cit. Kimiko (lug-ago 2022)</li>
+                        <li class="list-group-item">saggio vibes 💃</li>
+                        <li class="list-group-item">main character energy (mag-giu 2022)</li>
+                        <li class="list-group-item">that fucking mood</li>
+                        <li class="list-group-item">VEE, CARLOTTA E GIACOMO VANNO A BOSIO</li>
+                        <li class="list-group-item">An Emily Winchester kind of mood 🔪</li>
+                        <li class="list-group-item">landing page (mar-apr 2022)</li>
+                        <li class="list-group-item">2021 lol</li>
+                        <li class="list-group-item">honey and glass (nov-dic 2021)</li>
+                        <li class="list-group-item">(Revenge) Training Arc</li>
+                        <li class="list-group-item">Lidia 🤝 Emily</li>
+                        <li class="list-group-item">minecraft e nintendo switch (sep-oct 2021)</li>
+                        <li class="list-group-item">silvano d'orba? I hardly know her (lug-ago 2021)</li>
+                        <li class="list-group-item">main character energy (mag-giu 2022)</li>
+                        <li class="list-group-item">that fucking mood</li>
+                        <li class="list-group-item">VEE, CARLOTTA E GIACOMO VANNO A BOSIO</li>
+                        <li class="list-group-item">An Emily Winchester kind of mood 🔪</li>
+                        <li class="list-group-item">landing page (mar-apr 2022)</li>
+                        <li class="list-group-item">2021 lol</li>
+                        <li class="list-group-item">honey and glass (nov-dic 2021)</li>
+                        <li class="list-group-item">(Revenge) Training Arc</li>
+                        <li class="list-group-item">Lidia 🤝 Emily</li>
+                        <li class="list-group-item">"..."cit. Kimiko (lug-ago 2022)</li>
+                        <li class="list-group-item">saggio vibes 💃</li>
+                        <li class="list-group-item">main character energy (mag-giu 2022)</li>
+                        <li class="list-group-item">that fucking mood</li>
+                        <li class="list-group-item">VEE, CARLOTTA E GIACOMO VANNO A BOSIO</li>
+                    </ul>
+                </div>
             </div>
             <!-- center content -->
             <div class="col-12 col-lg-8 center-content px-4">
                 <div class="row">
-                    <div class="top-bar col-12 d-flex justify-content-between">
+                    <div class="top-bar col-12 d-flex justify-content-between align-items-center">
                         <div>
                             <button class="left-btn"><i class="fa-solid fa-chevron-left"></i></button>
                             <button class="right-btn"><i class="fa-solid fa-chevron-right"></i></button>
                         </div>
-                        <div>
+                        <div class="dropdown" id="userDropdown">
+                            <button class="dropdown-toggle user-button d-flex align-items-center" type="button"
+                                id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://bit.ly/48DTe9o" alt="user_image"><span class="ps-2">Lidia
+                                    Nautilus...</span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item text-white" href="#">Action</a></li>
+                                <li><a class="dropdown-item text-white" href="#">Another action</a></li>
+                                <li><a class="dropdown-item text-white" href="#">Something else here</a></li>
+                            </ul>
+                        </div>
+                        <!-- <div>
                             <button class="user-btn d-flex justify-content-center align-items-center" type="button">
                                 <img src="https://www.downloadclipart.net/large/girl-smile-png-transparent-picture.png"
                                     alt="user-img" class="user-img me-2">
                                 <p class="m-0">Lidia Nautilus</p>
                                 <i class="fa-solid fa-caret-down ms-2"></i>
                             </button>
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="dynamic-content">
@@ -215,10 +262,18 @@
                             <button class="top-right-btn close"><i class="fa-solid fa-xmark"></i></button>
                         </div>
                     </div>
-
+                    <div class="user-box d-flex justify-content-evenly mb-4"> <!--MODIFICARE STYLE!-->
+                        <img src="https://bit.ly/4bSi5sX" alt="logo_user">
+                        <div class="user-info color-grey d-flex flex-column">
+                            <span>Charlie Hookham</span>
+                            <span>In camera - Youmi Zouma</span>
+                            <span><i class="fa-solid fa-compact-disc pe-1"></i>EP III</span>
+                        </div>
+                        <span class="color-grey">4 ore</span>
+                    </div>
                 </div>
-
             </div>
+
             <!-- bottom command bar -->
             <div class="col-12 command-bar fixed-bottom">
                 <div class="row">
@@ -226,7 +281,16 @@
                     <div class="col-4 command-center">
                         <div class="row d-flex justify-content-center">
                             <div class="col-12 d-flex justify-content-center">
-
+                                <a href="#" type="button"><img class="player-btn" src="player-button/Shuffle.png"
+                                        alt="shuffle"></a>
+                                <a href="#" type="button"><img class="player-btn" src="player-button/Previous.png"
+                                        alt="previous"></a>
+                                <a href="#" type="button"><img class="player-btn" src="player-button/Play.png"
+                                        alt="play"></a>
+                                <a href="#" type="button"><img class="player-btn" src="player-button/Next.png"
+                                        alt="next"></a>
+                                <a href="" type="button"><img class="player-btn" src="player-button/Repeat.png"
+                                        alt="repeat"></a>
                             </div>
                             <div class="progress col-10">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
@@ -240,6 +304,8 @@
                     </div>
                 </div>
             </div>
+
+            <!--responsive navbar-->
             <div class="resp-bottom-bar fixed-bottom d-flex justify-content-center d-lg-none">
                 <div class="col-8 col-md-4 d-flex justify-content-between">
                     <div class="bottom-home-btn">
