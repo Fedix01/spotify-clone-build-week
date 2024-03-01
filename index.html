@@ -12,13 +12,18 @@
 </head>
 
 <body>
-    <div class="container-fluid fixed-top">
+    <div class="container-fluid">
         <div class="row px-1">
+
             <!-- sidebar left -->
             <div class="col-2 sidebar-left">
+                <!--sidebar left top-->
                 <div class="head-left-cont col-12 px-0">
+                    <div class="ellipsis">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
                     <div class="home">
-                        <a href="#" type="button">
+                        <a href="#index.html" type="button">
                             <i class="fa-solid fa-house p-2"></i>
                             <span>Home</span>
                         </a>
@@ -37,6 +42,7 @@
                         </a>
                     </div>
                 </div>
+                <!--sidebar left center-->
                 <div class="center-left-cont col-12 px-0 mt-3">
                     <div class="playlist">
                         <a href="#" type="button">
@@ -57,7 +63,7 @@
                         </a>
                     </div>
                 </div>
-                <!--scrollbar con titoli canzoni-->
+                <!--sidebar let bottom-scrollbar-->
                 <div class="col-12 border-top scrollbar">
                     <ul class="list-group">
                         <li class="list-group-item">early stage emily syndrome (sett-ott 2022)</li>
@@ -86,21 +92,19 @@
                         <li class="list-group-item">Lidia 🤝 Emily</li>
                     </ul>
                 </div>
-
-
             </div>
 
-            <!-- Search results. Appears when making a search. 
+             <!-- Search results. Appears when making a search. 
                  Attenzione : altezza settata a 90vh nel css. 
             -->
             <div class="col-8 px-4 d-none row" id="songs-result">
-                    <!-- Spazio per creare con javascript i risultati -->
-                
+                <!-- Spazio per creare con javascript i risultati -->            
             </div>
 
             <!-- center content . Disappears when making a search. -->
             <div class="col-8 center-content px-4" id="content-center">
                 <div class="row mt-2">
+                    <!--arrows e user-button-->
                     <div class="col-12 d-flex justify-content-between align-items-center">
                         <div>
                             <button class="left-btn"><i class="fa-solid fa-chevron-left"></i></button>
@@ -117,6 +121,8 @@
                             </ul>
                         </div>
                     </div>
+
+                    <!--card annuncio sponsorizzato-->
                     <div class="col-12 card-top p-2 mt-1">
                         <div class="row">
                             <div class="col-3 d-flex align-items-center ps-4 pe-0">
@@ -145,87 +151,109 @@
                             </div>
                         </div>
                     </div>
+
+                    <!--album statici-->
                     <div class="col-12 mt-3">
-                        <h3 class="fs-4">Buonasera</h3>
+                        <div class="row">
+                            <div class="col-12">
+                                <h3>Buonasera</h3>
+                            </div>
+                            <div class="col-4">
+                                <div class="card mb-3">
+                                    <div class="row g-0">
+                                        <div class="col-5">
+                                            <img src="https://www.spytwins.com/img/188565a673264af599-9.jpg" class="rounded-start img-fluid" alt="album_cover">
+                                        </div>
+                                        <div class="col-7">
+                                            <div class="card-body">
+                                                <p class="card-text">Titolo Playlist</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+
+                            <div class="col-4">
+                                <div class="card mb-3">
+                                    <div class="row g-0">
+                                        <div class="col-5">
+                                            <img src="https://www.mbmusic.it/wp-content/uploads/2014/04/caparezza-museica-album-cover.jpg" class="rounded-start img-fluid" alt="album_cover">
+                                        </div>
+                                        <div class="col-7">
+                                            <div class="card-body">
+                                                <p class="card-text">Caparezza Museica</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+
+                            <div class="col-4">
+                                <div class="card mb-3">
+                                    <div class="row g-0">
+                                        <div class="col-5">
+                                            <img src="https://www.automotorinews.it/wp-content/uploads/2020/10/emozioni-e1575383973852.jpg" class="rounded-start img-fluid" alt="album_cover">
+                                        </div>
+                                        <div class="col-7">
+                                            <div class="card-body">
+                                                <p class="card-text">Il meglio di Lucio Battisti</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+
+                            <div class="col-4">
+                                <div class="card mb-3">
+                                    <div class="row g-0">
+                                        <div class="col-5">
+                                            <img src="https://www.spytwins.com/img/188565a673264af599-9.jpg" class="rounded-start img-fluid" alt="album_cover">
+                                        </div>
+                                        <div class="col-7">
+                                            <div class="card-body">
+                                                <p class="card-text">Preferiti</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+
+                            <div class="col-4">
+                                <div class="card mb-3">
+                                    <div class="row g-0">
+                                        <div class="col-5">
+                                            <img src="https://www.musik-sammler.de/cover/1267000/1266919_1492537170.jpg" class="rounded-start img-fluid" alt="album_cover">
+                                        </div>
+                                        <div class="col-7">
+                                            <div class="card-body">
+                                                <p class="card-text">David Bowie</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+
+                            <div class="col-4">
+                                <div class="card mb-3">
+                                    <div class="row g-0">
+                                        <div class="col-5">
+                                            <img src="https://www.spytwins.com/img/188565a673264af599-9.jpg" class="rounded-start img-fluid" alt="album_cover">
+                                        </div>
+                                        <div class="col-7">
+                                            <div class="card-body">
+                                                <p class="card-text">Titolo Playlist</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>                            
+                        </div>                    
                     </div>
-                    <div class="row g-3">
-                        <div class="col-4">
-                            <div class="card-evening py-2">
-                                <div class="card-content d-flex">
-                                    <div>
-                                        <img class="evening-img" src="https://www.spytwins.com/img/188565a673264af599-9.jpg" alt="grease">
-                                    </div>
-                                    <div class="card-title d-flex align-items-center ps-2">
-                                        <p class="evening-title m-0">John Travolta, Olivia Newton - Grease</p>
-                                    </div>
-                                </div>
-                            </div> 
-                        </div>
-                        <div class="col-4">
-                            <div class="card-evening py-2">
-                                <div class="card-content d-flex">
-                                    <div>
-                                        <img class="evening-img" src="https://www.mbmusic.it/wp-content/uploads/2014/04/caparezza-museica-album-cover.jpg" alt="grease">
-                                    </div>
-                                    <div class="card-title d-flex align-items-center ps-2">
-                                        <p class="evening-title m-0">Caparezza - Museica</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="card-evening py-2">
-                                <div class="card-content d-flex">
-                                    <div>
-                                        <img class="evening-img" src="https://www.automotorinews.it/wp-content/uploads/2020/10/emozioni-e1575383973852.jpg" alt="grease">
-                                    </div>
-                                    <div class="card-title d-flex align-items-center ps-2">
-                                        <p class="evening-title m-0">Lucio Battisti - Emozioni</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="card-evening py-2">
-                                <div class="card-content d-flex">
-                                    <div>
-                                        <img class="evening-img" src="https://www.musik-sammler.de/cover/1267000/1266919_1492537170.jpg" alt="grease">
-                                    </div>
-                                    <div class="card-title d-flex align-items-center ps-2">
-                                        <p class="evening-title m-0">David Bowie - Changesbowie</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                       <div class="col-4">
-                            <div class="card-evening py-2 p">
-                                <div class="card-content d-flex">
-                                    <div>
-                                        <img class="evening-img" src="https://i.pinimg.com/originals/33/6d/ed/336ded540abb8c797125bfcb6491f5fd.jpg" alt="grease">
-                                    </div>
-                                    <div class="card-title d-flex align-items-center ps-2">
-                                        <p class="evening-title m-0">Bazzi - Cosmic</p>
-                                    </div>
-                                </div>
-                            </div>
-                       </div>
-                       <div class="col-4">
-                            <div class="card-evening py-2">
-                                <div class="card-content d-flex">
-                                    <div>
-                                        <img class="evening-img" src="https://firenze.unicusano.it/wp-content/uploads/2018/11/musica-da-discoteca.jpg" alt="grease">
-                                    </div>
-                                    <div class="card-title d-flex align-items-center ps-2">
-                                        <p class="evening-title m-0">Disco Party</p>
-                                    </div>
-                                </div>
-                            </div>
-                       </div>                       
-                    </div>
+
+                    <!--mostrare album con fetch-->
+                    
                 </div>
             </div>
-        </div>
-
 
             <!-- sidebar right -->
             <div class="col-2 sidebar-right">
@@ -235,34 +263,46 @@
                         <button class="top-right-btn close" onclick="closeRight()"><i class="fa-solid fa-xmark"></i></button>
                     </div>
                 </div>
-
             </div>
-            <!-- bottom command bar -->
-            <div class="col-12 command-bar">
-                <div class="row">
-                    <div class="col-4 command-left"></div>
-                    <div class="col-4 command-center">
-                        <div class="row d-flex justify-content-center">
-                            <div class="col-12 d-flex justify-content-center">
-                                <!--      <a href="#" type="button"><img class="player-btn" src="player-button/Shuffle.png" alt="shuffle"></a>
-                                <a href="#" type="button"><img class="player-btn" src="player-button/Previous.png" alt="previous"></a>
-                                <a href="#" type="button"><img class="player-btn" src="player-button/Play.png" alt="play"></a>
-                                <a href="#" type="button"><img class="player-btn" src="player-button/Next.png" alt="next"></a>
-                                <a href="" type="button"><img class="player-btn" src="player-button/Repeat.png" alt="repeat"></a>   -->
-                            </div>
-                            <div class="progress col-10">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
-                                    aria-valuemax="100">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4 command-right"></div>
-                </div>
-            </div>
-
         </div>
     </div>
+
+    <!-- Navbar player bottom -->
+    <div class="container-fluid fixed-bottom bg-container pt-1">
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <div id="song-content">
+                    <div class="d-flex align-items-center p-3">
+                        <div class="img-placeholder"></div>
+                        <span class="ms-3">Titolo <br> Artista</span>
+                        <i class="fa-regular fa-heart ms-3"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex justify-content-center">
+                <div id="player">
+                    <i class="fa-solid fa-play mb-3 play-btn"></i>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                            aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex align-items-center justify-content-center">
+                <div id="tools">
+                    <i class="fa-solid fa-microphone px-2"></i>
+                    <i class="fa-solid fa-bars px-2"></i>
+                    <i class="fa-solid fa-headphones px-2"></i>
+                    <i class="fa-solid fa-volume-high px-2"></i>
+                    <input type="range" class="form-range" id="customRange1">
+                    <i class="fa-solid fa-arrows-left-right px-2"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
