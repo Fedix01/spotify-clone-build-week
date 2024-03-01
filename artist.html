@@ -90,6 +90,11 @@
                         <li class="list-group-item">honey and glass (nov-dic 2021)</li>
                         <li class="list-group-item">(Revenge) Training Arc</li>
                         <li class="list-group-item">Lidia 🤝 Emily</li>
+                        <li class="list-group-item">"..."cit. Kimiko (lug-ago 2022)</li>
+                        <li class="list-group-item">saggio vibes 💃</li>
+                        <li class="list-group-item">main character energy (mag-giu 2022)</li>
+                        <li class="list-group-item">that fucking mood</li>
+                        <li class="list-group-item">VEE, CARLOTTA E GIACOMO VANNO A BOSIO</li>
                     </ul>
                 </div>
             </div>
@@ -100,7 +105,7 @@
             </div>
 
             <!-- center content -->
-            <div class="col-12 col-lg-8 center-content scrollbar" id="content-center">
+            <div class="col-12 col-lg-8 center-content center-scrollbar" id="content-center">
                 <!--arrows and user button-->
                 <div class="row position-relative">
                     <div class="col-12 d-flex justify-content-between position-absolute align-items-center">
@@ -108,10 +113,10 @@
                             <button class="left-btn"><i class="fa-solid fa-chevron-left"></i></button>
                             <button class="right-btn"><i class="fa-solid fa-chevron-right"></i></button>
                         </div>
-                        <div id="arrowsResponsive" class="d-none"> <!--RESPONSIVE-->
+                        <div id="arrowsResponsive" class="d-block d-sm-block d-md-none">
                             <button class="right-btn-sm"><i class="fa-solid fa-arrow-left"></i></button>
                         </div>
-                        <div class="dropdown">
+                        <div class="dropdown" id="userDropdown">
                             <button class="dropdown-toggle user-button d-flex align-items-center" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="https://bit.ly/48DTe9o" alt="user_image"><span class="ps-2">Lidia Nautilus...</span>
                             </button>
@@ -171,11 +176,12 @@
                             </div>  
                             <div class="col-12 col-md-5 order-1 order-sm-1 order-md-1 order-lg-2">
                                 <div>
-                                    <h3 class="font-size-15pt mb-3">Brani che ti piacciono</h3>
-                                    <div id="favSongSection" class="d-flex">
+                                    <h3 class="font-size-15pt mb-3 ps-sm-3">Brani che ti piacciono</h3>
+                                    <div id="favSongSection" class="d-flex align-items-sm-center ps-sm-3 mb-sm-3">
                                         <img src="" alt="">
-                                        <div class="d-flex flex-column">
-                                            <span class="fw-bold font-size-10pt">Hai messo Mi Piace a 11 brani</span>
+                                        <div class="d-flex flex-sm-row flex-lg-column">
+                                            <span class="fw-bold font-size-10pt d-none d-lg-block d-xl-block">Hai messo Mi Piace a 11 brani</span>
+                                            <span class="fw-bold font-size-10pt d-block d-sm-block d-md-none pe-1">8 brani</span>
                                             <span></span>
                                         </div>
                                     </div>
@@ -185,26 +191,24 @@
                     </div>
 
                     <div class="col-12">
-                        <button class="px-2 me-4 text-white text-uppercase font-size-9pt see-more" id="seeMoreBtn">Visualizza altro</button>
+                        <button class="px-2 me-4 text-white text-uppercase font-size-9pt see-more" id="seeMoreBtn" onclick="seeMore()">Visualizza altro</button>
                     </div>
-                    <div class="col-12">
-                        <h3 class="font-size-15pt mb-3">Uscite popolari</h3>
-                        <div class="row" id="otherAlbum">
-
+                    <div class="col-12 d-none" id="otherAlbum">
+                        <h3 class="font-size-15pt my-3 ps-3">Album che potrebbero piacerti</h3>
+                        <div class="row ps-3 mb-5 g-sm-2" id="otherRow">
                         </div>
                     </div>
-
                 </div>
             </div>
 
             <!-- sidebar right -->
-            <div class="col-2 side-bar-right">
+            <div class="col-2 sidebar-right">
             </div>
 
-            <!-- bottom command bar -->
+            <!-- bottom command bar
             <div class="col-12 command-bar">
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
-            </div>
+            </div> -->
         </div>
     </div>
 

@@ -45,19 +45,20 @@ function createTitlePage ({name, picture_xl}) {
 async function getTracks ({tracklist}) {
     try {
         let response = await fetch(tracklist);
-        let object = await response.json();
+        let object = await response.json();       
 
-        
-
-        let [one, two, three, four, five] = object.data; // voglio solo le prime 5
+        let [one, two, three, four, five, six] = object.data; // voglio solo le prime 5
         let tracksToShow = [];
         tracksToShow.push(one, two, three, four, five);
-
         tracksToShow.forEach(track => {
             showTracks(track);
-            createCardOthers (track);
+        });
 
-        })
+        let albumtoShow = [];
+        albumtoShow.push(one, two, three, four, five, six); // voglio solo 6 album
+        albumtoShow.forEach(album => {
+            createCardOthers (album);
+        });
         
     } catch (error) {
         console.log("There's an error!")
@@ -116,12 +117,12 @@ function innerFavourite ({name, picture}) {
 
     let favSpan = document.querySelector("#favSongSection div span:last-of-type");
     favSpan.classList.add("font-size-10pt");
-    favSpan.innerText = `Di ${name}`;
+    favSpan.innerText = `di ${name}`;
 }
 
 //funzione che crea altri contenuti
 function createCardOthers ({artist, album}) {
-    let otherRow = document.getElementById("otherAlbum");
+    let otherRow = document.getElementById("otherRow");
 
     let otherCol = document.createElement("div");
     otherCol.classList.add("col-12", "col-md-4", "col-lg-4");
@@ -152,14 +153,23 @@ function createCardOthers ({artist, album}) {
     cardBody.classList.add("card-body");
     colCard2.appendChild(cardBody);
 
-    let cardTitle = document.createElement("p");
-    cardTitle.classList.add("card-title");
-
+    let cardTitle = document.createElement("a");
+    cardTitle.classList.add("card-title", "font-size-10pt", "fw-bold", "linkToAlbum");
+    cardTitle.href = `album.html?id=${album.id}`
     cardTitle.innerText = `${album.title}`
     cardBody.appendChild(cardTitle);
 
-    let cardLink = document.createElement("a");
-    // cardLink.href = 
+    let cardLink = document.createElement("p");
+    cardLink.classList.add("font-size-10pt");
     cardLink.innerText = `${artist.name}`
     cardBody.appendChild(cardLink);
+}
+
+// funzione onclick seeMore 
+function seeMore() {
+    let hiddenSection = document.getElementById("otherAlbum");
+    hiddenSection.classList.remove("d-none");
+
+    let seeMoreBtn = document.getElementById("seeMoreBtn");
+    seeMoreBtn.style.visibility = "hidden";
 }
