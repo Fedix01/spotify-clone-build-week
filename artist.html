@@ -88,7 +88,7 @@
                                     <span>Artista Verificato</span>
                                 </div>
                                 <p class="display-3 fw-bold">Nome artista</p>
-                                <p class="d-none d-lg-block d-xl-block">numero ascoltatori mensili</p>
+                                <p class="d-none d-lg-block d-xl-block">numero ascoltatori mensili</p> <!--contenuto con JS-->
                             </div>
                         </div>
                         <p class=" d-block d-sm-block d-md-none">numero ascoltatori mensili</p>
@@ -118,16 +118,16 @@
 
                     <!--contenuto-->
                     <div class="col-12">     
-                        <div class="row flex-column flex-sm-column  flex-md-row flex-lg-row">
+                        <div class="row flex-column flex-sm-column flex-md-row flex-lg-row mt-3">
                             <div class="col-12 col-md-8 order-2 order-sm-2 order-md-2 order-lg-1">
-                                <h3 class="ps-3">Popolari</h3>
+                                <h3 class="ps-3 fs-4">Popolari</h3>
                                 <table class="table" id="artistTable">
                                     <tbody id="artistTable"></tbody>
                                 </table>
                             </div>  
                             <div class="col-12 col-md-4 order-1 order-sm-1 order-md-1 order-lg-2">
                                 <div>
-                                    <h3>Brani che ti piacciono</h3>
+                                    <h3 class="fs-4">Brani che ti piacciono</h3>
                                     <div id="favSongSection" class="d-flex">
                                         <img src="" alt="">
                                         <div class="d-flex flex-column">
@@ -138,15 +138,16 @@
                                 </div>
                             </div>                          
                         </div>                        
+                    </div>   
+                    <div class="col-12">
+                        <button class="other-content text-uppercase">visualizza altro</button>
                     </div>
-
-                    <div-col class="12">
-                        visualizza altro
-                    </div-col>
-
+                    <div class="col-12">
+                        <div class="row" id="otherContent">
+                        </div>
+                    </div>         
                 </div>
             </div>
-
             <!-- sidebar right -->
             <div class="col-2 side-bar-right">
             </div>

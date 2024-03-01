@@ -99,6 +99,12 @@ body {
     border-radius: 50%;
 }
 
+button.other-content {
+    background-color: #1E1E1E;
+    border: none;
+    color: white;
+    font-size: 9pt;
+}
 
 /*play button*/
 i.fa-play {
@@ -125,9 +131,7 @@ i.fa-play {
     height: 3em;
 }
 
-
 /*responsive*/
-
 @media screen and (max-width: 992px) {
     div.sidebar-left, div.side-bar-right {
         display: none;
@@ -136,5 +140,4 @@ i.fa-play {
     #userDropdown, #arrows {
         display: none;
     }
-
 }

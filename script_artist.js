@@ -114,3 +114,13 @@ function innerFavourite ({name, picture}) {
     let favSpan = document.querySelector("#favSongSection div span:last-of-type");
     favSpan.innerText = `Di ${name}`;
 }
+
+/* <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+<div class="card">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-title">Album</p>
+      <p class="card-text">Artista</p>
+    </div>
+</div>
+</div> */
