@@ -19,6 +19,7 @@ body {
     position: relative;
     height: 30rem;
     overflow: auto;
+    scrollbar-color: lightgray black;
 }
 
 .table-wrapper-scroll-y {
@@ -95,27 +96,17 @@ body {
 }
 
 
+.album-img-mob {
+    width: 200px;
+}
 
+/* Navbar bottom player */
 
 .bg-container {
     height: 5.5rem;
     background-color: #282828;
 }
 
-.playerControls .row {
-    justify-content: space-between;
-}
-
-.playerControls a img {
-    width: 14px;
-    margin-top: 1rem;
-    filter: brightness(60%);
-}
-
-.playerControls a:hover {
-    filter: brightness(80%);
-    color: #282828 !important;
-}
 
 .progress {
     color: white;
@@ -148,5 +139,77 @@ body {
 }
 
 .play-btn {
-    font-size: 25px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.backward,
+.forward {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+@media screen and (max-width:768px) {
+    .sidebar-left {
+        display: none;
+    }
+
+    .side-bar-right {
+        display: none;
+    }
+
+    .my-custom-scrollbar {
+        display: none;
+    }
+
+    .bottomPlayer {
+        display: none;
+    }
+
+    #album-content {
+        display: none;
+    }
+}
+
+
+.sidebar-right .col-12.d-flex.p-0 {
+    width: 16.6vw;
+}
+
+
+
+.command-bar {
+    height: 10%;
+    background-color: rgb(15, 15, 15);
+    border-top: 1px solid grey;
+}
+
+.command-left,
+.command-center,
+.command-right {
+    max-height: 10vw;
+}
+
+.center-content {
+    background-color: rgb(15, 15, 15);
+}
+
+
+.resp-bottom-bar {
+    height: 10vh;
+    background-color: rgba(30, 30, 30, 0.5);
+}
+
+.resp-bottom-bar .fa-solid {
+    font-size: 15pt;
+    padding: 20px;
+
+}
+
+.resp-bottom-bar p {
+    font-size: 8pt;
+}
+
+.resp-bottom-bar>.col-8.col-md-4>div {
+    cursor: pointer;
 }
