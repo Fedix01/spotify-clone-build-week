@@ -135,3 +135,32 @@ a{
     height: 90vh; 
     overflow: auto; 
 }
+
+/* USER DROPDOWN BUTTON*/
+button.user-button {
+    background-color: black;
+    color: white;
+    border-radius: 999px;
+    border: none;
+    padding: 0;
+}
+
+button.user-button::after {
+    color: white;
+    margin-right: 0.4em;
+}
+
+.user-button img {
+    width: 1.5em;
+    height: 1.5em;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.dropdown-menu {
+    background-color: black;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(128, 128, 128, 0.527);
+}
