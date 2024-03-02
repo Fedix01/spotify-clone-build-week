@@ -82,7 +82,7 @@ const displayFnc = (array) => {
         content.appendChild(imgContainer);
 
         let art = document.createElement("a");
-        art.classList.add("pt-2", "mb-1");
+        art.classList.add("pt-2", "mb-1", "fs-6");
         art.innerText = element.artist.name;
         content.appendChild(art);
         art.href = `artist.html?id=${element.artist.id}`;

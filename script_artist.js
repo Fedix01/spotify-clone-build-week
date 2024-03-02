@@ -129,7 +129,7 @@ function createCardOthers ({artist, album}) {
     otherRow.appendChild(otherCol);
 
     let otherCard = document.createElement("div");
-    otherCard.classList.add("card");
+    otherCard.classList.add("card", "w-100");
     otherCol.appendChild(otherCard);
 
     let rowCard = document.createElement("div");
@@ -141,16 +141,16 @@ function createCardOthers ({artist, album}) {
     rowCard.appendChild(colCard);
 
     let imgCard = document.createElement("img");
-    imgCard.classList.add("img-fluid", "rounded-start");
+    imgCard.classList.add("img-fluid", "rounded-start", "p-0");
     imgCard.src = `${album.cover}`;
     colCard.appendChild(imgCard);
 
     let colCard2 = document.createElement("div");
-    colCard2.classList.add("col-7");
+    colCard2.classList.add("col-7", "p-0");
     rowCard.appendChild(colCard2);
 
     let cardBody = document.createElement("div");
-    cardBody.classList.add("card-body");
+    cardBody.classList.add("card-body", "text-overflow");
     colCard2.appendChild(cardBody);
 
     let cardTitle = document.createElement("a");
