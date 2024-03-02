@@ -167,6 +167,7 @@ function createHtml(album) {
   });
 }
 
+
 function createTable(track) {
   console.log(track);
   let tRows = document.createElement("tr");
@@ -183,11 +184,8 @@ function createTable(track) {
 
   trackTitleCont.addEventListener("click", () => {
     bottomSong(track);
+    playSong(track.preview)
   });
-
-  /* tolti dall'eventListener per usare l'operatore di destrutturazione. 
-    track.title, track.artist.name, track.album.cover_small, track.preview 
-    */
 
   trackTitleCont.appendChild(trackTitleBox);
 
@@ -207,7 +205,7 @@ function createTable(track) {
 
 // Navbar bottom player
 
-function bottomSong({ title, artist, album, preview }) {
+function bottomSong({ title, artist, album}) {
   const bottomBarSong = document.getElementById("song-content");
 
   bottomBarSong.innerHTML = "";
@@ -230,31 +228,33 @@ function bottomSong({ title, artist, album, preview }) {
   bottomCont.appendChild(icon);
 
   bottomBarSong.appendChild(bottomCont);
-
-  let mySong = new Audio(preview);
-
-  playerBtn.addEventListener("click", () => {
-    stopStartMusic(mySong);
-  });
-
-  backwardBtn.addEventListener("click", () => {
-    restartMusic(mySong);
-  });
-
-  forwardBtn.addEventListener("click", () => {
-    endMusic(mySong);
-  });
-
-  mySong.ontimeupdate = (event) => {
-    updateProgress(mySong);
-  };
-
+  
   let sideList = document.createElement("li");
   sideList.innerText = title;
   sideList.style.listStyle = "none";
   sideList.classList.add("py-2");
-
+  
   songsSide.appendChild(sideList);
+}
+
+function playSong(preview) {
+    let mySong = new Audio(preview);
+    
+    playerBtn.addEventListener("click", () => {
+      stopStartMusic(mySong);
+    });
+    
+    backwardBtn.addEventListener("click", () => {
+      restartMusic(mySong);
+    });
+    
+    forwardBtn.addEventListener("click", () => {
+      endMusic(mySong);
+    });
+    
+    mySong.ontimeupdate = (event) => {
+      updateProgress(mySong);
+    };
 }
 
 function stopStartMusic(mySong) {
@@ -274,8 +274,6 @@ function stopStartMusic(mySong) {
 function restartMusic(mySong) {
   mySong.currentTime = 0;
   updateProgress(mySong);
-  // Da fixare: 
-  // L'elemento audio non viene riprodotto se è stata prima chiamata endMusic. L'elemento audio diventa 'ended'.
 }
 
 function endMusic(mySong) {
@@ -287,7 +285,6 @@ let progressBar = document.getElementById("progress-bar");
 
 function updateProgress(mySong) {
   let percentage = Math.round((mySong.currentTime / mySong.duration) * 100);
-  console.log(percentage);
   progressBar.style.width = `${percentage}%`;
 }
 
@@ -395,7 +392,7 @@ function createHtmlMob(album) {
 }
 
 function createSongsMob(track) {
-  console.log(track);
+
   songsMob.classList.add("d-block", "d-md-none");
   let songCont = document.createElement("div");
   songCont.classList.add(
