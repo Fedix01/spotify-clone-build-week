@@ -181,10 +181,12 @@ function createTable(track) {
     trackTitleBox.innerHTML = `${track.title}<br>${track.artist.name}`;
 
     trackTitleCont.addEventListener("click", () => {
-        bottomSong(track)
+        bottomSong(track) 
     })
 
-    /* track.title, track.artist.name, track.album.cover_small, track.preview */
+    /* tolti dall'eventListener per usare l'operatore di destrutturazione. 
+    track.title, track.artist.name, track.album.cover_small, track.preview 
+    */
 
     trackTitleCont.appendChild(trackTitleBox);
 
@@ -205,6 +207,7 @@ function createTable(track) {
 }
 
 // Navbar bottom player
+let isPlaying = false; 
 
 function bottomSong({title, artist, album, preview}) {
     const bottomBarSong = document.getElementById("song-content");
@@ -233,8 +236,12 @@ function bottomSong({title, artist, album, preview}) {
     let mySong = new Audio(preview)
 
     playerBtn.addEventListener("click", () => {
-        playMusic(mySong)
+        controlMusic(mySong)
     })
+     
+    mySong.ontimeupdate = (event) => {
+        updateProgress(mySong)
+    }
 
     let sideList = document.createElement("li");
     sideList.innerText = title;
@@ -245,7 +252,7 @@ function bottomSong({title, artist, album, preview}) {
 
 }
 
-function playMusic(mySong) {
+function controlMusic(mySong) {
 
     if (mySong.paused) {
         console.log("song was paused. Playing again !")
@@ -260,6 +267,25 @@ function playMusic(mySong) {
     }
 
 }
+
+let progressBar = document.getElementById('progress-bar')
+
+function updateProgress(mySong){
+
+      console.log("sono in update!!")
+      let percentage = Math.round((mySong.currentTime / mySong.duration) * 100)
+      console.log(percentage)
+      progressBar.style.width = `${percentage}%`
+
+}
+
+/*
+
+function getPercentage(){
+    per ottenere ogni volta la percentuale di progresso della canzone.
+    usa song.duration e song.currentTime.
+}
+*/
 
 function createHtmlMob(album) {
     albumContentMobile.classList.add("d-block", "d-md-none")
