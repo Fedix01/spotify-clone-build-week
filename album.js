@@ -181,8 +181,10 @@ function createTable(track) {
     trackTitleBox.innerHTML = `${track.title}<br>${track.artist.name}`;
 
     trackTitleCont.addEventListener("click", () => {
-        bottomSong(track.title, track.artist.name, track.album.cover_small, track.preview)
+        bottomSong(track)
     })
+
+    /* track.title, track.artist.name, track.album.cover_small, track.preview */
 
     trackTitleCont.appendChild(trackTitleBox);
 
@@ -200,12 +202,11 @@ function createTable(track) {
     tableContent.appendChild(tRows);
 
 
-
 }
 
 // Navbar bottom player
 
-function bottomSong(title, artist, albumImg, preview) {
+function bottomSong({title, artist, album, preview}) {
     const bottomBarSong = document.getElementById("song-content");
 
     bottomBarSong.innerHTML = "";
@@ -213,11 +214,11 @@ function bottomSong(title, artist, albumImg, preview) {
     bottomCont.classList.add("d-flex", "align-items-center", "p-3")
 
     let img = document.createElement("img");
-    img.src = albumImg;
+    img.src = album.cover_small;
     img.style.height = "50px";
 
     let infoArtist = document.createElement("span");
-    infoArtist.innerHTML = `${title}<br>${artist}`;
+    infoArtist.innerHTML = `${title}<br>${artist.name}`;
     infoArtist.classList.add("ms-3");
 
     let icon = document.createElement("i");
@@ -229,8 +230,10 @@ function bottomSong(title, artist, albumImg, preview) {
 
     bottomBarSong.appendChild(bottomCont);
 
+    let mySong = new Audio(preview)
+
     playerBtn.addEventListener("click", () => {
-        playMusic(preview)
+        playMusic(mySong)
     })
 
     let sideList = document.createElement("li");
@@ -242,30 +245,19 @@ function bottomSong(title, artist, albumImg, preview) {
 
 }
 
-function playMusic(url) {
-
-    let mySong = new Audio(url);
+function playMusic(mySong) {
 
     if (mySong.paused) {
+        console.log("song was paused. Playing again !")
         mySong.play();
         playerBtn.classList.remove("fa-solid", "fa-play")
         playerBtn.classList.add("fa-solid", "fa-pause");
     } else if (!mySong.paused) {
+        console.log("song was playing. Putting in pause !")
         mySong.pause();
         playerBtn.classList.remove("fa-solid", "fa-pause");
         playerBtn.classList.add("fa-solid", "fa-play")
     }
-    // let isPlaying = false;
-
-    // isPlaying ? mySong.pause() : mySong.play();
-
-
-    // mySong.onplaying = function () {
-    //     isPlaying = true;
-    // };
-    // mySong.onpause = function () {
-    //     isPlaying = false;
-    // };
 
 }
 
@@ -354,8 +346,6 @@ function createHtmlMob(album) {
     playBtn.style.cursor = "pointer";
 
     let groupBtn = document.createElement("div");
-
-
 
     playBtnCont.appendChild(playBtn);
 
