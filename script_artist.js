@@ -93,8 +93,7 @@ function showTracks ({album, title, duration, rank}) {
 
     let secondTableTd = document.createElement("td");
     secondTableTd.classList.add("text-white", "ps-2", "font-size-10pt");
-    secondTableTd.innerText = `${rank}`;
-    
+    secondTableTd.innerText = `${rank}`;    
 
     let thirdTableTd = document.createElement("td");
     thirdTableTd.classList.add("text-white", "font-size-10pt");

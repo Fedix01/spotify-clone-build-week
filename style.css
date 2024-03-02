@@ -146,6 +146,7 @@ a:hover{
     height: 35px;
     width: 70px;
     border-radius: 18px;
+    border: none;
 }
 
 .card-top-btn:hover{
