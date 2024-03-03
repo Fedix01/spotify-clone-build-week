@@ -7,6 +7,7 @@ let countTrack = 1;
 const playerBtn = document.getElementById("playerBtn");
 const backwardBtn = document.getElementById("backward-btn");
 const forwardBtn = document.getElementById("forward-btn");
+const volumeSlider = document.getElementById("volume-slider")
 const endpoint = "https://striveschool-api.herokuapp.com/api/deezer/album/";
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
@@ -255,6 +256,10 @@ function playSong(preview) {
     mySong.ontimeupdate = (event) => {
       updateProgress(mySong);
     };
+
+    volumeSlider.addEventListener("input", (event) => {
+      mySong.volume = event.target.value; 
+    })
 }
 
 function stopStartMusic(mySong) {

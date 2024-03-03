@@ -20,6 +20,7 @@ const favSongSection = document.getElementById("favSongSection");
 const playerBtn = document.getElementById("playerBtn");
 const backwardBtn = document.getElementById("backward-btn");
 const forwardBtn = document.getElementById("forward-btn");
+const volumeSlider = document.getElementById("volume-slider")
 
 window.onload = getArtist ()
 
@@ -236,6 +237,10 @@ function bottomSong(title, artist, album) {
       mySong.ontimeupdate = (event) => {
         updateProgress(mySong);
       };
+
+      volumeSlider.addEventListener("input", (event) => {
+        mySong.volume = event.target.value; 
+      })
   }
   
   function stopStartMusic(mySong) {
