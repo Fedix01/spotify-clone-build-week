@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="style_artist.css">
+    <link rel="stylesheet" href="style.css">
     <title>Artist</title>
 </head>
 
@@ -16,20 +17,21 @@
         <div class="row px-1">
 
             <!-- sidebar left -->
-            <div class="col-2 sidebar-left">
-                <div class="head-left-cont col-12 px-0 ">
-                    <i class="fa-solid fa-ellipsis ps-2"></i>
+            <div class="col-2 sidebar-left"> <!--dovrebbe avere position fixed, ma da conflitti-->
+                <!--sidebar left top-->
+                <div class="head-left-cont col-12 px-0">
+                    <div class="ellipsis">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
                     <div class="home">
                         <a href="index.html" type="button">
                             <i class="fa-solid fa-house p-2"></i>
                             <span>Home</span>
                         </a>
                     </div>
-                    <div class="ipt-src d-none">
-                        <input type="search" class="input-search text-center" placeholder="Enter your search">
-                    </div>
                     <div class="search">
-                        <a class="searchBtn" type="button">
+                        <input type="text" name="search" id="search-input" class="d-none">
+                        <a href="#" type="button" class="btn" id="search-btn" onclick="searchSongs()">
                             <i class="fa-solid fa-magnifying-glass p-2"></i>
                             <span>Cerca</span>
                         </a>
@@ -41,6 +43,7 @@
                         </a>
                     </div>
                 </div>
+                <!--sidebar left center-->
                 <div class="center-left-cont col-12 px-0 mt-3">
                     <div class="playlist">
                         <a href="#" type="button">
@@ -97,6 +100,11 @@
                 </div>
             </div>
 
+            <div class="col-8 px-4 d-none row" id="songs-result">
+                <!-- Spazio per creare con javascript i risultati -->
+
+            </div>
+
             <!-- center content -->
             <div class="col-12 col-lg-8 center-content center-scrollbar" id="content-center">
                 <!--arrows and user button-->
@@ -107,11 +115,13 @@
                             <button class="right-btn"><i class="fa-solid fa-chevron-right"></i></button>
                         </div>
                         <div id="arrowsResponsive" class="d-block d-sm-block d-md-none">
-                            <button class="right-btn-sm mt-1"><i class="fa-solid fa-arrow-left"></i></button>
+                            <button class="right-btn-sm"><i class="fa-solid fa-arrow-left"></i></button>
                         </div>
                         <div class="dropdown" id="userDropdown">
-                            <button class="dropdown-toggle user-button d-flex align-items-center" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="https://bit.ly/48DTe9o" alt="user_image"><span class="ps-2">Lidia Nautilus...</span>
+                            <button class="dropdown-toggle user-button d-flex align-items-center" type="button"
+                                id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://bit.ly/48DTe9o" alt="user_image"><span class="ps-2">Lidia
+                                    Nautilus...</span>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <li><a class="dropdown-item text-white" href="#">Action</a></li>
@@ -124,26 +134,37 @@
 
                         </div>
                     </div>
+                    
+                    <div class="other-title mt-5">
+                        <h6 class="other-title py-2">Altro di ciò che ti piace</h6>
+                    </div>
 
+                    <div class="container-fluid">
+                        <div class="row node">
+                            <!-- JavaScript content -->
+                        </div>
+                    </div>
                     <!--copertina-->
                     <div class="col-12 p-0">
                         <div class="d-flex align-items-end" id="jumboTitle">
-                            <div class="d-flex flex-column ps-3" >
+                            <div class="d-flex flex-column ps-3">
                                 <div>
                                     <span class="p-1"><i class="fa-solid fa-check p-1"></i></span>
                                     <span class="font-size-10pt">Artista Verificato</span>
                                 </div>
                                 <p class="display-3 fw-bold">Nome artista</p>
-                                <p class="font-size-10pt fw-bold d-none d-lg-block d-xl-block">3.433.158 ascoltatori mensili</p>
+                                <p class="font-size-10pt fw-bold d-none d-lg-block d-xl-block">3.433.158 ascoltatori
+                                    mensili</p>
                             </div>
                         </div>
-                        <p class="font-size-10pt fw-bold d-block d-sm-block d-md-none mt-2 ps-3">3.433.158 ascoltatori mensili</p>
+                        <p class="font-size-10pt fw-bold d-block d-sm-block d-md-none mt-2 ps-3">3.433.158 ascoltatori
+                            mensili</p>
                     </div>
 
                     <!--bottoni-->
                     <div class="col-12 d-none d-lg-block d-xl-block">
-                        <div class="d-flex align-items-center mt-2 mb-2 ps-3">
-                            <i class="fa-solid fa-circle-play p-3 me-2" aria-hidden="true" style="color: rgb(30, 215, 95); font-size: 50px; cursor: pointer;"></i>
+                        <div class="d-flex align-items-center mt-4 mb-3 ps-3">
+                            <button type="button" class="btn play-btn me-4" id="artist-play-btn"><i class="fa-solid fa-play" id="artist-play"></i></button>
                             <span class="border px-2 me-4 font-size-10pt fw-bold">FOLLOWING</span>
                             <i class="fa-solid fa-ellipsis"></i>
                         </div>
@@ -152,43 +173,47 @@
                     <div class="col-12 d-block d-sm-block d-md-none">
                         <div class="d-flex justify-content-between align-items-center mt-1 mb-3 ps-3">
                             <div>
-                                <button class="btn btn-seguiti px-2 me-4 text-white border border-secondary">Seguiti</button>
-                                <i class="fa-solid fa-ellipsis-vertical"></i> 
+                                <button class="btn px-2 me-4 text-white border border-secondary">Seguiti</button>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
                             </div>
                             <div>
                                 <i class="fa-solid fa-shuffle pe-3"></i>
-                                <i class="fa-solid fa-circle-play p-3 me-2" aria-hidden="true" style="color: rgb(30, 215, 95); font-size: 50px; cursor: pointer;"></i>
+                                <button type="button" class="btn play-btn me-4"><i
+                                        class="fa-solid fa-play"></i></button>
                             </div>
                         </div>
                     </div>
 
                     <!--contenuto-->
-                    <div class="col-12">     
+                    <div class="col-12">
                         <div class="row flex-column flex-sm-column flex-md-row flex-lg-row">
                             <div class="col-12 col-md-7 order-2 order-sm-2 order-md-2 order-lg-1">
                                 <h3 class="ps-3 font-size-15pt">Popolari</h3>
                                 <table class="table" id="artistTable">
                                     <tbody id="artistTable"></tbody>
                                 </table>
-                            </div>  
+                            </div>
                             <div class="col-12 col-md-5 order-1 order-sm-1 order-md-1 order-lg-2">
                                 <div>
-                                    <h3 class="font-size-15pt mb-3 ps-3 ps-sm-3">Brani che ti piacciono</h3>
-                                    <div id="favSongSection" class="d-flex align-items-sm-center ps-3 ps-sm-3 mb-3 mb-sm-3">
+                                    <h3 class="font-size-15pt mb-3 ps-sm-3">Brani che ti piacciono</h3>
+                                    <div id="favSongSection" class="d-flex align-items-sm-center ps-sm-3 mb-sm-3">
                                         <img src="" alt="">
-                                        <div class="d-flex flex-sm-row flex-lg-column ">
-                                            <span class="fw-bold font-size-10pt d-none d-lg-block d-xl-block">Hai messo Mi Piace a 11 brani</span>
-                                            <span class="fw-bold font-size-10pt d-block d-sm-block d-md-none pe-1">8 brani</span>
+                                        <div class="d-flex flex-sm-row flex-lg-column">
+                                            <span class="fw-bold font-size-10pt d-none d-lg-block d-xl-block">Hai messo
+                                                Mi Piace a 11 brani</span>
+                                            <span class="fw-bold font-size-10pt d-block d-sm-block d-md-none pe-1">8
+                                                brani</span>
                                             <span></span>
                                         </div>
                                     </div>
                                 </div>
-                            </div>                          
-                        </div>                        
+                            </div>
+                        </div>
                     </div>
 
                     <div class="col-12">
-                        <button class="px-2 me-4 text-white text-uppercase font-size-9pt see-more" id="seeMoreBtn" onclick="seeMore()">Visualizza altro</button>
+                        <button class="px-2 me-4 text-white text-uppercase font-size-9pt see-more" id="seeMoreBtn"
+                            onclick="seeMore()">Visualizza altro</button>
                     </div>
                     <div class="col-12 d-none" id="otherAlbum">
                         <h3 class="font-size-15pt my-3 ps-3">Album che potrebbero piacerti</h3>
@@ -200,49 +225,11 @@
 
             <!-- sidebar right -->
             <div class="col-2 sidebar-right">
-                <div class="row">
-                    <div class="col-12 d-flex justify-content-between mt-2">
-                        <div>
-                            <p class="fw-bold">Attività amici</p>
-                        </div>
-                        <div>
-                            <button class="top-right-btn add"><i class="fa-solid fa-user-plus"></i></button>
-                            <button class="top-right-btn close"><i class="fa-solid fa-xmark"></i></button>
-                        </div>
-                    </div>
-                    <div class="user-box d-flex justify-content-between mt-4">
-                        <img src="https://images.saymedia-content.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cq_auto:eco%2Cw_1200/MTk4MDQzMTI5NzY3NTM1ODA2/short-captions-for-profile-pictures.png" class="mx-2" alt="logo_user">
-                        <div class="user-info color-grey d-flex flex-column">
-                            <span class="fs-11pt">Charlie Hookham</span>
-                            <span class="fs-9pt">In camera - Youmi Zouma</span>
-                            <span class="fs-9pt fw-bold"><i class="fa-solid fa-compact-disc pe-1"></i>EP III</span>
-                        </div>
-                        <span class="color-grey fs-9pt">4 ore</span>
-                    </div>
-                    <div class="user-box d-flex justify-content-between mt-4">
-                        <img src="https://t4.ftcdn.net/jpg/04/44/53/99/360_F_444539901_2GSnvmTX14LELJ6edPudUsarbcytOEgj.jpg" class="mx-2" alt="logo_user">
-                        <div class="user-info color-grey d-flex flex-column">
-                            <span class="fs-11pt">lightdark02</span>
-                            <span class="fs-9pt">Aimed to kill - Le Mac</span>
-                            <span class="fs-9pt fw-bold"><i class="fa-solid fa-compact-disc pe-1"></i>Aimed to kill</span>
-                        </div>
-                        <span class="color-grey fs-9pt">8 ore</span>
-                    </div>
-                    <div class="user-box d-flex justify-content-between mt-4">
-                        <img src="https://a.storyblok.com/f/191576/1200x800/faa88c639f/round_profil_picture_before_.webp" class="mx-2" alt="logo_user">
-                        <div class="user-info color-grey d-flex flex-column">
-                            <span class="fs-11pt">Valeria Traverso</span>
-                            <span class="fs-9pt">New Kings - Sleeping</span>
-                            <span class="fs-9pt fw-bold"><i class="fa-solid fa-music pe-1"></i>Twint Badass</span>
-                        </div>
-                        <span class="color-grey fs-9pt">3 giorni</span>
-                    </div>
-                </div>
             </div>
 
             <!-- Navbar player bottom -->
 
-            <div class="container-fluid fixed-bottom bg-container bottomPlayer pt-1 d-none d-md-none d-lg-block">
+            <div class="container-fluid fixed-bottom bg-container bottomPlayer pt-1">
                 <div class="row align-items-center">
                     <div class="col-md-4">
                         <div id="song-content">
@@ -255,13 +242,12 @@
                     </div>
                     <div class="col-md-4 d-flex justify-content-center">
                         <div id="player">
-                            <i class="fa-solid fa-backward-step me-4 backward"></i>
-                            <i class="fa-solid fa-play play-btn p-2" id="playerBtn"></i>
-                            <i class="fa-solid fa-forward-step ms-4 forward"></i>
+                            <i class="fa-solid fa-backward-step me-4 backward" id="backward-btn"></i>
+                            <i class="fa-solid fa-play mb-3 play-btn" id="playerBtn"></i>
+                            <i class="fa-solid fa-forward-step ms-4 forward" id="forward-btn"></i>
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
-                                    aria-valuemax="100">
-                                </div>
+                                <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
                             </div>
                         </div>
                     </div>
@@ -271,7 +257,7 @@
                             <i class="fa-solid fa-bars px-2"></i>
                             <i class="fa-solid fa-headphones px-2"></i>
                             <i class="fa-solid fa-volume-high px-2"></i>
-                            <input type="range" class="form-range" id="customRange1">
+                            <input type="range" class="form-range" id="volume-slider" min="0" max="1" step="0.05">
                             <i class="fa-solid fa-arrows-left-right px-2"></i>
                         </div>
                     </div>
@@ -299,11 +285,14 @@
         </div>
     </div>
 
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/c2c086fb37.js" crossorigin="anonymous"></script>
+
+
+
     <script src="script_artist.js"></script>
 </body>
 
