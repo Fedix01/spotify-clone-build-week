@@ -184,6 +184,84 @@ function seeMore() {
     seeMoreBtn.style.visibility = "hidden";
 }
 
+
+// FUNZIONE RICERCA: 
+const searchBtn = document.querySelector(".searchBtn");
+const searchBar = document.querySelector(".ipt-src");
+const searchInput = document.querySelector(".input-search");
+const otherTitle = document.querySelector(".other-title");
+const node = document.querySelector(".row.node");
+
+
+const srcBarDisp = () => {
+    searchBar.classList.remove("d-none");
+}
+
+const ifEnter = (event) => {
+    if (event.key === "Enter") {
+        searchBar.classList.add("d-none");
+        let src = searchInput.value;
+        otherTitle.innerText = "Risultati della tua ricerca";
+        console.log(searchInput.value);
+        searchInput.value = "";
+        fetchFnc(src);
+    }
+}
+
+const fetchFnc = async (idSearch) => {
+    try {
+        const response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${idSearch}`);
+        let json = await response.json();
+        console.log(json.data)
+        displayFnc(json.data);
+
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+const displayFnc = (array) => {
+    node.innerHTML = "";
+    array.forEach(element => {
+        console.log(element)
+        let side = document.createElement("div");
+        side.classList.add("col-sm-6", "col-md-4", "col-lg-3", "my-2");
+        node.appendChild(side)
+
+        let content = document.createElement("div");
+        content.classList.add("p-3");
+        content.style.backgroundColor = "rgb(18, 18, 18)";
+        content.style.borderRadius = "10px";
+        content.style.height = "100%"
+        side.appendChild(content);
+
+        let imgContainer = document.createElement("a");
+        imgContainer.href = `album.html?id=${element.album.id}`;
+
+        let img = document.createElement("img");
+        img.src = element.album.cover_medium;
+        img.style.width = "100%";
+        imgContainer.appendChild(img);
+        content.appendChild(imgContainer);
+
+        let art = document.createElement("a");
+        art.classList.add("pt-2", "mb-1", "fs-6");
+        art.innerText = element.artist.name;
+        content.appendChild(art);
+        art.href = `artist.html?id=${element.artist.id}`;
+
+        let title = document.createElement("p");
+        title.style.color = "grey";
+        title.innerText = element.album.title;
+        content.appendChild(title);
+
+    });
+}
+
+
+searchBtn.addEventListener("click", srcBarDisp);
+searchInput.addEventListener("keyup", (event) => { ifEnter(event) });
+
 // Navbar bottom player
 
 function bottomSong(title, artist, album) {
@@ -272,4 +350,4 @@ function bottomSong(title, artist, album) {
     let percentage = Math.round((mySong.currentTime / mySong.duration) * 100);
     progressBar.style.width = `${percentage}%`;
   }
-  
+ 

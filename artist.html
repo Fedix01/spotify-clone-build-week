@@ -29,9 +29,11 @@
                             <span>Home</span>
                         </a>
                     </div>
+                    <div class="ipt-src d-none">
+                        <input type="search" class="input-search text-center" placeholder="Enter your search">
+                    </div>
                     <div class="search">
-                        <input type="text" name="search" id="search-input" class="d-none">
-                        <a href="#" type="button" class="btn" id="search-btn" onclick="searchSongs()">
+                        <a class="searchBtn" type="button">
                             <i class="fa-solid fa-magnifying-glass p-2"></i>
                             <span>Cerca</span>
                         </a>
@@ -130,7 +132,16 @@
                             </ul>
                         </div>
                     </div>
+                    
+                    <div class="other-title mt-5">
+                        <h6 class="other-title py-2">Altro di ciò che ti piace</h6>
+                    </div>
 
+                    <div class="container-fluid">
+                        <div class="row node">
+                            <!-- JavaScript content -->
+                        </div>
+                    </div>
                     <!--copertina-->
                     <div class="col-12 p-0">
                         <div class="d-flex align-items-end" id="jumboTitle">
@@ -258,7 +269,7 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/c2c086fb37.js" crossorigin="anonymous"></script>
-   <!--  <script src="script.js"></script> -->
+
     <script src="script_artist.js"></script>
 </body>
 

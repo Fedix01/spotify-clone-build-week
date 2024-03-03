@@ -3,6 +3,11 @@ body {
     color: white;
 }
 
+.sidebar-left, .sidebar-right, .side-scrollbar , .list-group-item{
+    background-color: #121212!important;
+    /* !important per fare override del background di list-group-item*/
+}
+
 /* .side-bar-left,
 .center-content,
 .side-bar-right {

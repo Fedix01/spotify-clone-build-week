@@ -10,6 +10,11 @@ body{
     position: fixed;
 }
 
+.sidebar-left, .sidebar-right, .side-scrollbar , .list-group-item{
+    background-color: #121212!important;
+    /* !important per fare override del background di list-group-item*/
+}
+
 .sidebar-right{
     top: 0;
     right: 0;
