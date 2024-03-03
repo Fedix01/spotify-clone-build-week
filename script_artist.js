@@ -201,7 +201,7 @@ const ifEnter = (event) => {
     if (event.key === "Enter") {
         searchBar.classList.add("d-none");
         let src = searchInput.value;
-        otherTitle.innerText = "Risultati della tua ricerca";
+        otherTitle.classList.remove("d-none");
         console.log(searchInput.value);
         searchInput.value = "";
         fetchFnc(src);
@@ -257,13 +257,10 @@ const displayFnc = (array) => {
 
     });
 }
-
-
 searchBtn.addEventListener("click", srcBarDisp);
 searchInput.addEventListener("keyup", (event) => { ifEnter(event) });
 
 // Navbar bottom player
-
 function bottomSong(title, artist, album) {
     const bottomBarSong = document.getElementById("song-content");
   
@@ -296,7 +293,7 @@ function bottomSong(title, artist, album) {
     songsSide.appendChild(sideList); */
   }
   
-  function playSong(preview) {
+function playSong(preview) {
       let mySong = new Audio(preview);
       
       playerBtn.addEventListener("click", () => {
@@ -318,7 +315,7 @@ function bottomSong(title, artist, album) {
       volumeSlider.addEventListener("input", (event) => {
         mySong.volume = event.target.value; 
       })
-  }
+}
   
   function stopStartMusic(mySong) {
     if (mySong.paused) {
