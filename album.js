@@ -20,8 +20,8 @@ const songsMob = document.getElementById("songs-mob");
 
 const sidebarRight = document.querySelector(".sidebar-right");
 const centerContent = document.querySelector(".center-content");
-const hiddenPostsBtn = document.querySelector(".hidden-posts");
 const btnRightClose = document.querySelector(".top-right-btn.close");
+
 
 // btnRightClose.addEventListener("click", () => {
 //   closeRight();
@@ -507,3 +507,24 @@ const displayFnc = (array) => {
 }
 searchBtn.addEventListener("click", srcBarDisp);
 searchInput.addEventListener("keyup", (event) => { ifEnter(event) });
+
+const openBtnCont = document.querySelector(".open-btn-cont");
+const openRightBtn = document.querySelector(".open-right-btn");
+
+const toggleRight = () => {
+  sidebarRight.classList.toggle("d-none");
+  let stateSidebar = sidebarRight.classList.toString();
+  if (stateSidebar.includes("d-none")) {
+    openBtnCont.classList.remove("d-none");
+    centerContent.classList.remove("col-lg-8");
+    centerContent.classList.add("col-lg-10");
+  } else {
+    openBtnCont.classList.add("d-none");
+    centerContent.classList.add("col-lg-8");
+    centerContent.classList.remove("col-lg-10");
+  }
+
+}
+
+btnRightClose.addEventListener("click", toggleRight);
+openRightBtn.addEventListener("click", toggleRight);
