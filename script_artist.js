@@ -61,7 +61,7 @@ async function getTracks ({tracklist}) {
         });
         
     } catch (error) {
-        console.log("There's an error!")
+        console.log(error);
     }
 }
 
