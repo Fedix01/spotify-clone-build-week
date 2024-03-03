@@ -188,7 +188,7 @@ i.fa-play {
     font-size: 10pt;
     color: #7D7D7D;
     border: none;
-    background-color: black;
+    background-color: transparent;
 }
 
 .input-search{
@@ -552,7 +552,7 @@ div.d-flex i.fa-ellipsis, i.fa-ellipsis-vertical {
 }
 
 .center-scrollbar {
-    height: 90vh; /*se imposto lo style della sidebar, la height va in conflitto!*/
+    height: 90vh; 
     overflow-y: scroll;
 }
 
@@ -600,6 +600,10 @@ div.d-flex i.fa-ellipsis, i.fa-ellipsis-vertical {
     }
 
     #userDropdown, #arrows {
+        display: none;
+    }
+
+    .bottomPlayer {
         display: none;
     }
 }

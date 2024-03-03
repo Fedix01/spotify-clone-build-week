@@ -24,7 +24,7 @@ body {
     position: relative;
     height: 30rem;
     overflow: auto;
-    scrollbar-color: lightgray black;
+    scrollbar-color: #7D7D7D black;
 }
 
 .table-wrapper-scroll-y {
@@ -82,9 +82,89 @@ body {
 }
 
 
+/*SIDEBAR*/
+div.d-flex i.fa-ellipsis {
+    color: #7D7D7D;
+}
+/*sidebar SCROLL*/
+.side-scrollbar {
+    height: 90vh;
+    overflow-y: scroll;
+}
 
+.side-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+.side-scrollbar::-webkit-scrollbar-track {
+    background-color: black;
+}
+.side-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #7D7D7D;
+}
 
+.list-group-item {
+    background-color: black;
+    border: none;
+    color: #7D7D7D;
+    font-size: 9pt;
+    padding-top: 0;
+    padding-bottom: 0;
+}
 
+/*SIDEBAR DESTRA*/
+div.user-box img {
+    width: 2em;
+    height: 2em;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+span.fs-11pt {
+    color:#7D7D7D;
+    font-size: 11pt;
+    font-weight: bold;
+}
+
+span.fs-9pt {
+    color:#7D7D7D;
+    font-size: 9pt;
+}
+
+.top-right-btn{
+    font-size: 10pt;
+    color: #7D7D7D;
+    border: none;
+    background-color: transparent;
+}
+
+/* USER DROPDOWN BUTTON*/
+button.user-button {
+    background-color: black;
+    color: white;
+    border-radius: 999px;
+    border: none;
+    padding: 0;
+}
+
+button.user-button::after {
+    color: white;
+    margin-right: 0.4em;
+}
+
+.user-button img {
+    width: 1.5em;
+    height: 1.5em;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.dropdown-menu {
+    background-color: black;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(128, 128, 128, 0.527);
+}
 
 /* album css */
 .album-img {
@@ -159,7 +239,7 @@ body {
         display: none;
     }
 
-    .side-bar-right {
+    .sidebar-right {
         display: none;
     }
 
@@ -217,4 +297,13 @@ body {
 
 .resp-bottom-bar>.col-8.col-md-4>div {
     cursor: pointer;
+}
+
+/*SEARCH FUNCTION*/
+.input-search{
+    width: 100%;
+    color: white;
+    background-color: rgb(24, 24, 24);
+    border-radius: 15px;
+    border: 1px solid white;
 }

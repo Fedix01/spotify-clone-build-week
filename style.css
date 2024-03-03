@@ -201,7 +201,7 @@ a:hover{
     font-size: 10pt;
     color: #7D7D7D;
     border: none;
-    background-color: black;
+    background-color: transparent;
 }
 
 .input-search{
