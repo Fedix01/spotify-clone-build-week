@@ -76,6 +76,17 @@ body{
     background-color: black;
 }
 
+span.fs-11pt {
+    color:#7D7D7D;
+    font-size: 11pt;
+    font-weight: bold;
+}
+
+span.fs-9pt {
+    color:#7D7D7D;
+    font-size: 9pt;
+}
+
 a{
     font-size: 9pt;
     color: white;
@@ -133,6 +144,7 @@ a:hover{
     height: 35px;
     width: 70px;
     border-radius: 18px;
+    border: none;
 }
 
 .card-top-btn:hover{
@@ -169,7 +181,7 @@ a:hover{
 
 .top-right-btn{
     font-size: 10pt;
-    color: white;
+    color: #7D7D7D;
     border: none;
     background-color: black;
 }
@@ -375,6 +387,7 @@ footer{
 div.user-box img {
     width: 2em;
     height: 2em;
+    object-fit: cover;
     border-radius: 50%;
 }
 
