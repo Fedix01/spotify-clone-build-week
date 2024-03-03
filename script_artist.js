@@ -16,6 +16,12 @@ const artistTable = document.getElementById("artistTable");
 //sezione favourite songs:
 const favSongSection = document.getElementById("favSongSection");
 
+//Tasti per la riproduzione brani 
+const playerBtn = document.getElementById("playerBtn");
+const backwardBtn = document.getElementById("backward-btn");
+const forwardBtn = document.getElementById("forward-btn");
+const volumeSlider = document.getElementById("volume-slider")
+
 window.onload = getArtist ()
 
 //fetch GET artista 
@@ -68,7 +74,7 @@ async function getTracks ({tracklist}) {
 // funzione che mostra tracklist in table:
 // li number: 
 let listNumber = 1;
-function showTracks ({album, title, duration, rank}) {
+function showTracks ({title, artist, album, duration, rank, preview}) {
 
     //tableTr
     let tableTr = document.createElement("tr");
@@ -90,6 +96,11 @@ function showTracks ({album, title, duration, rank}) {
     let titleTrack = document.createElement("span");
     titleTrack.classList.add("text-white", "fw-bold", "font-size-10pt");
     titleTrack.innerText = `${title}`;
+    titleTrack.style.cursor = "pointer";
+    titleTrack.addEventListener("click", () => {
+        bottomSong(title, artist, album)
+        playSong(preview)
+    })
 
     let secondTableTd = document.createElement("td");
     secondTableTd.classList.add("text-white", "ps-2", "font-size-10pt");
@@ -173,6 +184,7 @@ function seeMore() {
     seeMoreBtn.style.visibility = "hidden";
 }
 
+search-fn-in-artist-page
 // FUNZIONE RICERCA: 
 const searchBtn = document.querySelector(".searchBtn");
 const searchBar = document.querySelector(".ipt-src");
@@ -249,3 +261,93 @@ const displayFnc = (array) => {
 
 searchBtn.addEventListener("click", srcBarDisp);
 searchInput.addEventListener("keyup", (event) => { ifEnter(event) });
+
+// Navbar bottom player
+
+function bottomSong(title, artist, album) {
+    const bottomBarSong = document.getElementById("song-content");
+  
+    bottomBarSong.innerHTML = "";
+    let bottomCont = document.createElement("div");
+    bottomCont.classList.add("d-flex", "align-items-center", "p-3");
+  
+    let img = document.createElement("img");
+    img.src = album.cover_small;
+    img.style.height = "50px";
+  
+    let infoArtist = document.createElement("span");
+    infoArtist.innerHTML = `${title}<br>${artist.name}`;
+    infoArtist.classList.add("ms-3");
+  
+    let icon = document.createElement("i");
+    icon.classList.add("fa-regular", "fa-heart", "ms-4");
+  
+    bottomCont.appendChild(img);
+    bottomCont.appendChild(infoArtist);
+    bottomCont.appendChild(icon);
+  
+    bottomBarSong.appendChild(bottomCont);
+    
+   /*  let sideList = document.createElement("li");
+    sideList.innerText = title;
+    sideList.style.listStyle = "none";
+    sideList.classList.add("py-2");
+    
+    songsSide.appendChild(sideList); */
+  }
+  
+  function playSong(preview) {
+      let mySong = new Audio(preview);
+      
+      playerBtn.addEventListener("click", () => {
+        stopStartMusic(mySong);
+      });
+      
+      backwardBtn.addEventListener("click", () => {
+        restartMusic(mySong);
+      });
+      
+      forwardBtn.addEventListener("click", () => {
+        endMusic(mySong);
+      });
+      
+      mySong.ontimeupdate = (event) => {
+        updateProgress(mySong);
+      };
+
+      volumeSlider.addEventListener("input", (event) => {
+        mySong.volume = event.target.value; 
+      })
+  }
+  
+  function stopStartMusic(mySong) {
+    if (mySong.paused) {
+      console.log("song was paused. Playing again !");
+      mySong.play();
+      playerBtn.classList.remove("fa-solid", "fa-play");
+      playerBtn.classList.add("fa-solid", "fa-pause");
+    } else if (!mySong.paused) {
+      console.log("song was playing. Putting in pause !");
+      mySong.pause();
+      playerBtn.classList.remove("fa-solid", "fa-pause");
+      playerBtn.classList.add("fa-solid", "fa-play");
+    }
+  }
+  
+  function restartMusic(mySong) {
+    mySong.currentTime = 0;
+    updateProgress(mySong);
+  }
+  
+  function endMusic(mySong) {
+    mySong.currentTime = mySong.duration;
+    updateProgress(mySong);
+  }
+  
+  let progressBar = document.getElementById("progress-bar");
+  
+  function updateProgress(mySong) {
+    let percentage = Math.round((mySong.currentTime / mySong.duration) * 100);
+    progressBar.style.width = `${percentage}%`;
+  }
+ 

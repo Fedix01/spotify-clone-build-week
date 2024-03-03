@@ -40,7 +40,7 @@ const ifEnter = (event) => {
         searchBar.classList.add("d-none");
         let src = searchInput.value;
         otherTitle.innerText = "Risultati della tua ricerca";
-        console.log(searchInput.value);
+/*         console.log(searchInput.value); */
         searchInput.value = "";
         fetchFnc(src);
     }
@@ -60,7 +60,7 @@ const fetchFnc = async (idSearch) => {
 const displayFnc = (array) => {
     node.innerHTML = "";
     array.forEach(element => {
-        console.log(element)
+       /*  console.log(element) */
         let side = document.createElement("div");
         side.classList.add("col-sm-6", "col-md-4", "col-lg-3", "my-2");
         node.appendChild(side)
@@ -96,9 +96,6 @@ const displayFnc = (array) => {
 }
 
 
-
-
-
 fetchFnc();
 
 btnRightClose.addEventListener("click", closeRight);
@@ -108,31 +105,23 @@ searchInput.addEventListener("keyup", (event) => { ifEnter(event) });
 btmHomeBtn.addEventListener("click", () => { location.href = "index.html" });
 btmSearchBtn.addEventListener("click", () => { location.href = "search.html" });
 
-
-// Navbar bottom player
-// function bottomSong(title, artist, albumImg) {
-//     const bottomBarSong = document.getElementById("song-content");
-
-//     bottomBarSong.innerHTML = "";
-//     let bottomCont = document.createElement("div");
-//     bottomCont.classList.add("d-flex", "align-items-center", "p-3")
-
-//     let img = document.createElement("img");
-//     img.src = albumImg;
-//     img.style.height = "50px";
-
-//     let infoArtist = document.createElement("span");
-//     infoArtist.innerHTML = `${title}<br>${artist}`;
-//     infoArtist.classList.add("ms-3");
-
-//     let icon = document.createElement("i");
-//     icon.classList.add("fa-regular", "fa-heart", "ms-4");
-
-//     bottomCont.appendChild(img);
-//     bottomCont.appendChild(infoArtist);
-//     bottomCont.appendChild(icon)
-
-//     bottomBarSong.appendChild(bottomCont);
-
-
-// }
+ /* Navbar bottom player */
+/* 
+ function bottomSong(title, artist, albumImg) {
+     const bottomBarSong = document.getElementById("song-content");
+     bottomBarSong.innerHTML = "";
+     let bottomCont = document.createElement("div");
+     bottomCont.classList.add("d-flex", "align-items-center", "p-3")
+     let img = document.createElement("img");
+     img.src = albumImg;
+     img.style.height = "50px";
+     let infoArtist = document.createElement("span");
+     infoArtist.innerHTML = `${title}<br>${artist}`;
+     infoArtist.classList.add("ms-3");
+     let icon = document.createElement("i");
+     icon.classList.add("fa-regular", "fa-heart", "ms-4");
+     bottomCont.appendChild(img);
+     bottomCont.appendChild(infoArtist);
+     bottomCont.appendChild(icon)
+     bottomBarSong.appendChild(bottomCont);
+} */
