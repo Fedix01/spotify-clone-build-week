@@ -1,7 +1,7 @@
 /*MAIN PAGE*/
 body{
     position: relative;
-    background-color: black;
+    background-color: #121212;
     color: white;
 }
 
@@ -10,10 +10,11 @@ body{
     position: fixed;
 }
 
-.sidebar-left, .sidebar-right, .side-scrollbar , .list-group-item{
+.sidebar-left, .sidebar-right, .side-scrollbar , .list-group-item, .side-scrollbar::-webkit-scrollbar-track {
     background-color: #121212!important;
     /* !important per fare override del background di list-group-item*/
 }
+
 
 .sidebar-right{
     top: 0;
