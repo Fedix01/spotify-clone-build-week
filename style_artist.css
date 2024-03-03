@@ -151,11 +151,11 @@ i.fa-check {
 }
 
 /*bottoni under jumbotron*/
-i.fa-play {
+#artist-play {
     color: black;
 }
 
-.play-btn {
+#artist-play-btn {
     background-color: #1FDF64;
     border-radius: 50%;
 }
@@ -181,6 +181,10 @@ div.d-flex i.fa-ellipsis, i.fa-ellipsis-vertical {
 .center-scrollbar {
     height: 90vh; /*se imposto lo style della sidebar, la height va in conflitto!*/
     overflow-y: scroll;
+}
+
+.progress {
+    width: 400px; 
 }
 
 /*classi JS*/
@@ -248,3 +252,6 @@ div.d-flex i.fa-ellipsis, i.fa-ellipsis-vertical {
     background-color: #7D7D7D;
 }
 
+#player-btn {
+    color: white; 
+}
