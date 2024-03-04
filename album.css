@@ -234,6 +234,8 @@ button.user-button::after {
     cursor: pointer;
 }
 
+
+
 @media screen and (max-width:768px) {
     .sidebar-left {
         display: none;
@@ -255,13 +257,6 @@ button.user-button::after {
         display: none;
     }
 }
-
-
-.sidebar-right .col-12.d-flex.p-0 {
-    width: 16.6vw;
-}
-
-
 
 .command-bar {
     height: 10%;
@@ -323,4 +318,20 @@ button.user-button::after {
     color: white;
     background-color: black;
 
+}
+
+/* CSS origin */
+
+.sidebar-left, .center-content, .sidebar-right{
+    height: 90vh;
+    position: fixed;
+}
+
+.sidebar-right{
+    top: 0;
+    right: 0;
+}
+
+.center-content{
+    left: 18vw;
 }
