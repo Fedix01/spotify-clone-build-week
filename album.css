@@ -307,3 +307,20 @@ button.user-button::after {
     border-radius: 15px;
     border: 1px solid white;
 }
+
+.open-btn-cont{
+    position: relative;
+}
+
+.open-right-btn{
+    position: absolute;
+    top: 10px;
+    right: 0;
+    height: 30px;
+    width: 30px;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    background-color: black;
+
+}
